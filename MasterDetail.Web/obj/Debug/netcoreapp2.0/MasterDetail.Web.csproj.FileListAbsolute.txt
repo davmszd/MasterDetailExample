@@ -1,0 +1,12 @@
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.deps.json
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.runtimeconfig.json
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.runtimeconfig.dev.json
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.dll
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csproj.CoreCompileInputs.cache
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.AssemblyInfoInputs.cache
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.AssemblyInfo.cs
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.pdb
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.dll
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.pdb
+E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\ef.dll
+E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csprojResolveAssemblyReference.cache

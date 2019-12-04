@@ -1,0 +1,20 @@
+<form #personAddForm="ngForm" (ngSubmit)="personAddForm" class="form">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput name="name" [(ngModel)]="person.name" placeholder="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="family" [(ngModel)]="person.family" placeholder="family">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="nationalcode" [(ngModel)]="person.nationalcode" placeholder="nationalcode">
+    </mat-form-field>
+
+
+    <button mat-raised-button (click)="addPerson(personAddForm)">Add</button>
+    <button mat-raised-button mat-dialog-close="cancel">cancel</button>
+
+  </div>
+</form>

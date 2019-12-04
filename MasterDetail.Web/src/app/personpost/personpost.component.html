@@ -1,0 +1,48 @@
+<p>personposts component</p>
+
+<form #personPostForm="ngForm" (ngSubmit)="personPostForm" class="form">
+  <ul>
+    <li *ngFor="let personPost of personPosts">
+      <span>{{personPost.name}}-{{personPost.description}}</span>
+      
+              <!--(click)="deletePersonPost(personPost); personPostForm.reset();"-->
+      <button mat-raised-button
+              color="warn"
+              dav-AreYouSure
+              (then)="deletePersonPost(personPost);"
+              (else)="cancel(arg2)"
+              >Delete</button>
+      <button mat-fab color="green" (click)="setEditPersonPost(personPost)">Edit</button>
+    </li>
+  </ul>
+
+  <mat-form-field>
+    <mat-label> name</mat-label>
+    <input name="name" matInput #postName [(ngModel)]="onePersonPost.name" placeholder="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label> Description</mat-label>
+    <input name="description" matInput #postDescription [(ngModel)]="onePersonPost.description" required/>
+    <mat-hint>Type Your Description here</mat-hint>
+    <mat-error>
+      description is required
+    </mat-error>
+  </mat-form-field>
+  
+  <button mat-stroked-button
+          color="primary"
+          [disabled]="!enabled"
+          (click)="editPersonPost(); resetForm(personPostForm);"
+          >
+    Submit
+  </button>
+
+  <button mat-stroked-button
+          color="accent"
+          (click)="addPersonPost(personPostForm);">
+    Add
+  </button>
+</form>
+
+
