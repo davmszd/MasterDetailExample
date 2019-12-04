@@ -10,3 +10,16 @@ E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.W
 E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.pdb
 E:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\ef.dll
 E:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csprojResolveAssemblyReference.cache
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.deps.json
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.runtimeconfig.json
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.runtimeconfig.dev.json
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.dll
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\MasterDetail.Web.pdb
+D:\Projects\MasterDetail\MasterDetail.Web\bin\Debug\netcoreapp2.0\ef.dll
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csprojAssemblyReference.cache
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csproj.CoreCompileInputs.cache
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.AssemblyInfoInputs.cache
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.AssemblyInfo.cs
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.csproj.CopyComplete
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.dll
+D:\Projects\MasterDetail\MasterDetail.Web\obj\Debug\netcoreapp2.0\MasterDetail.Web.pdb

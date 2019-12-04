@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -56,6 +57,7 @@ import { PersonAddComponent } from './person-add/person-add.component';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatDialogModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'Home', component: HomeComponent },

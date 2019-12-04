@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\r\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n  <ng-container matColumnDef=\"action\">\r\n    <th mat-header-cell *matHeaderCellDef> action </th>\r\n    <td mat-cell *matCellDef=\"let row;\">\r\n      <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n      <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n      <!--(click)=\"deletePerson(row)\"-->\r\n      <button mat-mini-fab\r\n              color=\"accent\"\r\n              dav-AreYouSure\r\n              (then)=\"deletePerson(row);\"\r\n              (else)=\"cancel(arg2)\"\r\n              matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n              matTooltipPosition=\"right\">\r\n        Delete\r\n      </button>\r\n    </td>\r\n  </ng-container>\r\n  <!-- name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <th mat-header-cell *matHeaderCellDef> Name </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n  <!-- family Column -->\r\n  <ng-container matColumnDef=\"family\">\r\n    <th mat-header-cell *matHeaderCellDef> Family </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n  </ng-container>\r\n  <!-- nationalCode Column -->\r\n  <ng-container matColumnDef=\"nationalCode\">\r\n    <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n  </ng-container>\r\n  <!-- subscribed Column -->\r\n  <ng-container matColumnDef=\"subscribed\">\r\n    <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n    <td mat-cell *matCellDef=\"let element\">\r\n      <mat-checkbox [value]=\"element.name\"\r\n                    [checked]=\"element.subscribed\"\r\n                    (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n    </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n</mat-table>\r\n\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"renderedData\" class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n  \r\n  <mat-paginator #paginator\r\n                 [pageSize]=\"5\"\r\n                 [pageSizeOptions]=\"[5, 10, 20]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
 
 /***/ }),
 
@@ -553,19 +553,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm2015/progress-spinner.js");
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm2015/tooltip.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _person_person_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./person/person.component */ "./src/app/person/person.component.ts");
-/* harmony import */ var _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./personpost/personpost.component */ "./src/app/personpost/personpost.component.ts");
-/* harmony import */ var _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./bs-navbar/bs-navbar.component */ "./src/app/bs-navbar/bs-navbar.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/Common/app-error-handler */ "./src/app/Common/app-error-handler.ts");
-/* harmony import */ var _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Common/are-you-sure.directive */ "./src/app/Common/are-you-sure.directive.ts");
-/* harmony import */ var _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _person_person_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./person/person.component */ "./src/app/person/person.component.ts");
+/* harmony import */ var _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./personpost/personpost.component */ "./src/app/personpost/personpost.component.ts");
+/* harmony import */ var _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./bs-navbar/bs-navbar.component */ "./src/app/bs-navbar/bs-navbar.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/Common/app-error-handler */ "./src/app/Common/app-error-handler.ts");
+/* harmony import */ var _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Common/are-you-sure.directive */ "./src/app/Common/are-you-sure.directive.ts");
+/* harmony import */ var _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
 
 
 
@@ -591,27 +592,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_11__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_12__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_16__["AppComponent"],
-            _person_person_component__WEBPACK_IMPORTED_MODULE_17__["PersonComponent"],
-            _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_18__["PersonpostComponent"],
-            _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_19__["BsNavbarComponent"],
-            _home_home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"],
-            _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_22__["AreYouSureDirective"],
-            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_23__["PersonAddComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"],
+            _person_person_component__WEBPACK_IMPORTED_MODULE_18__["PersonComponent"],
+            _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_19__["PersonpostComponent"],
+            _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_20__["BsNavbarComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"],
+            _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_23__["AreYouSureDirective"],
+            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__["PersonAddComponent"],
         ],
         entryComponents: [
-            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_23__["PersonAddComponent"],
+            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__["PersonAddComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_15__["AppRoutingModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_12__["HttpModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_16__["AppRoutingModule"],
+            _angular_http__WEBPACK_IMPORTED_MODULE_13__["HttpModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
             _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"],
             _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"],
@@ -622,16 +624,17 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"],
             _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__["MatTooltipModule"],
             _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialogModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_13__["RouterModule"].forRoot([
-                { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"] },
-                { path: 'Home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"] },
-                { path: 'Persons', component: _person_person_component__WEBPACK_IMPORTED_MODULE_17__["PersonComponent"] }
+            _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__["MatPaginatorModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"].forRoot([
+                { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"] },
+                { path: 'Home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"] },
+                { path: 'Persons', component: _person_person_component__WEBPACK_IMPORTED_MODULE_18__["PersonComponent"] }
             ]),
         ],
         providers: [
-            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_11__["ErrorHandler"], useClass: src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_21__["AppErrorHandler"] },
+            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_12__["ErrorHandler"], useClass: src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_22__["AppErrorHandler"] },
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_16__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"]]
     })
 ], AppModule);
 
@@ -648,7 +651,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.dropdown-toggle { \n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5kcm9wZG93bi10b2dnbGUgeyBcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n.dropdown-toggle { \r\n  cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLmRyb3Bkb3duLXRvZ2dsZSB7IFxyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -884,9 +887,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
-/* harmony import */ var src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/Common/app-error-notfound */ "./src/app/Common/app-error-notfound.ts");
-/* harmony import */ var src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
+/* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
+/* harmony import */ var src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Common/app-error-notfound */ "./src/app/Common/app-error-notfound.ts");
+/* harmony import */ var src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+
+
 
 
 
@@ -894,38 +901,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PersonComponent = class PersonComponent {
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     constructor(personService, MatDialog) {
         this.personService = personService;
         this.MatDialog = MatDialog;
-        this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //progressbar
         this.progress = 0;
         this.isLoading = false;
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //paging
+        this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
+        this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+    }
+    ngOnInit() {
         this.isLoading = true;
+        this.dataSource.paginator = this.paginator;
         this.timer = setInterval(() => {
             this.progress++;
             if (this.progress == 100) {
                 clearInterval(this.timer);
-                //this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
                 this.personService.getAll().subscribe(persons => {
                     this.persons = persons;
                     this.dataSource = persons;
                     this.isLoading = false;
+                    this.dataSource.paginator = this.paginator;
+                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
+                    // it won't work properly if it is not wrapped in timeout
+                    setTimeout(() => {
+                        this.dataSource.paginator = this.paginator;
+                    });
+                    this.renderedData = this.dataSource.connect();
                 });
             }
         }, 20);
     }
-    ngOnInit() {
-        //this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
-        //
-        //this.personService.getAll().subscribe(persons => {
-        //  this.persons = persons;
-        //  this.dataSource = persons;
-        //  this.isLoading = false;
-        //});
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator;
     }
     //##############################################
     openDialog() {
-        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_5__["PersonAddComponent"], { data: { Id: 1 } })
+        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], { data: { Id: 1 } })
             .afterClosed()
             .subscribe(result => {
             console.log(result);
@@ -972,7 +988,7 @@ let PersonComponent = class PersonComponent {
                 this.isLoading = false;
             });
         }, (error) => {
-            if (error instanceof src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_4__["AppErrorNotFound"]) {
+            if (error instanceof src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_6__["AppErrorNotFound"]) {
                 alert('this post has already been deleted.');
             }
             else {
@@ -992,9 +1008,12 @@ let PersonComponent = class PersonComponent {
     }
 };
 PersonComponent.ctorParameters = () => [
-    { type: src_app_services_person_service__WEBPACK_IMPORTED_MODULE_3__["PersonService"] },
+    { type: src_app_services_person_service__WEBPACK_IMPORTED_MODULE_5__["PersonService"] },
     { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"], { static: false })
+], PersonComponent.prototype, "paginator", void 0);
 PersonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-person',
@@ -1125,15 +1144,15 @@ PersonpostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _common_app_error_bad_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../common/app-error-bad-input */ "./src/app/common/app-error-bad-input.ts");
-/* harmony import */ var _common_app_error_notfound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../common/app-error-notfound */ "./src/app/common/app-error-notfound.ts");
-/* harmony import */ var _common_app_error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../common/app-error */ "./src/app/common/app-error.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm2015/add/operator/catch.js");
-/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm2015/add/operator/map.js");
-/* harmony import */ var rxjs_add_observable_throw__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/add/observable/throw */ "./node_modules/rxjs-compat/_esm2015/add/observable/throw.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm2015/add/operator/catch.js");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm2015/add/operator/map.js");
+/* harmony import */ var rxjs_add_observable_throw__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/observable/throw */ "./node_modules/rxjs-compat/_esm2015/add/observable/throw.js");
+/* harmony import */ var _common_app_error_bad_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../common/app-error-bad-input */ "./src/app/common/app-error-bad-input.ts");
+/* harmony import */ var _common_app_error_notfound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../common/app-error-notfound */ "./src/app/common/app-error-notfound.ts");
+/* harmony import */ var _common_app_error__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../common/app-error */ "./src/app/common/app-error.ts");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 
 
 
@@ -1166,23 +1185,23 @@ let DataService = class DataService {
     }
     delete(resource) {
         return this.http.post(this.url + '/Delete', resource)
-            //.map(response => response.json())
+            .map(response => response.json())
             .catch(this.handleError);
     }
     handleError(error) {
         if (error.status === 400)
-            return rxjs__WEBPACK_IMPORTED_MODULE_6__["Observable"].throw(new _common_app_error_bad_input__WEBPACK_IMPORTED_MODULE_1__["AppErrorBadInput"](error.json()));
+            return rxjs__WEBPACK_IMPORTED_MODULE_9__["Observable"].throw(new _common_app_error_bad_input__WEBPACK_IMPORTED_MODULE_4__["AppErrorBadInput"](error.json()));
         if (error.status === 404)
-            return rxjs__WEBPACK_IMPORTED_MODULE_6__["Observable"].throw(new _common_app_error_notfound__WEBPACK_IMPORTED_MODULE_2__["AppErrorNotFound"]());
-        return rxjs__WEBPACK_IMPORTED_MODULE_6__["Observable"].throw(new _common_app_error__WEBPACK_IMPORTED_MODULE_3__["AppError"](error));
+            return rxjs__WEBPACK_IMPORTED_MODULE_9__["Observable"].throw(new _common_app_error_notfound__WEBPACK_IMPORTED_MODULE_5__["AppErrorNotFound"]());
+        return rxjs__WEBPACK_IMPORTED_MODULE_9__["Observable"].throw(new _common_app_error__WEBPACK_IMPORTED_MODULE_6__["AppError"](error));
     }
 };
 DataService.ctorParameters = () => [
     { type: String },
-    { type: _angular_http__WEBPACK_IMPORTED_MODULE_4__["Http"] }
+    { type: _angular_http__WEBPACK_IMPORTED_MODULE_7__["Http"] }
 ];
 DataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Injectable"])()
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_8__["Injectable"])()
 ], DataService);
 
 
@@ -1293,7 +1312,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })

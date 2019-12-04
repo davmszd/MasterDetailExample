@@ -1,12 +1,15 @@
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/throw';
 import { AppErrorBadInput } from './../common/app-error-bad-input';
 import { AppErrorNotFound  } from './../common/app-error-notfound';
 import { AppError } from './../common/app-error';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/throw';
+
+
+
 
 @Injectable()
 export class DataService {
@@ -32,7 +35,7 @@ export class DataService {
 
   delete(resource) {
     return this.http.post(this.url + '/Delete',resource)
-      //.map(response => response.json())
+      .map(response => response.json())
       .catch(this.handleError);
   }
 

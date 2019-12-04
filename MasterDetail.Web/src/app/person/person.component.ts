@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatDialog } from '@angular/material';
+
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Http } from '@angular/http';
 import { PersonService } from 'src/app/services/person.service';
 import { AppError } from 'src/app/Common/app-error';
 import { AppErrorNotFound } from 'src/app/Common/app-error-notfound';
 import { PersonAddComponent } from 'src/app/person-add/person-add.component';
+import { Observable } from 'rxjs';
 
 
 
@@ -14,43 +18,52 @@ import { PersonAddComponent } from 'src/app/person-add/person-add.component';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit {
+export class PersonComponent implements OnInit, AfterViewInit {
   persons: Person[];
   personPosts: PersonPost[];
 
-  dataSource: any;
-  displayedColumns: string[] = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
 
+  //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  //progressbar
   progress: number = 0;
   timer;
   isLoading: boolean = false;
-
-
+  //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  //paging
+  displayedColumns: string[] = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  dataSource: MatTableDataSource<Person> = new MatTableDataSource();
+  renderedData: Observable<any>;
+  //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   constructor(private personService: PersonService, private MatDialog: MatDialog) {
-    this.isLoading = true;
-    this.timer = setInterval(() => {
-      this.progress++;
-      if (this.progress == 100) {
-        clearInterval(this.timer);
-        //this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
-    
-        this.personService.getAll().subscribe(persons => {
-          this.persons = persons;
-          this.dataSource = persons;
-          this.isLoading = false;
-        });
-      }
-    },20);
   }
 
+
   ngOnInit() {
-    //this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
-    //
-    //this.personService.getAll().subscribe(persons => {
-    //  this.persons = persons;
-    //  this.dataSource = persons;
-    //  this.isLoading = false;
-    //});
+    this.isLoading = true;
+    this.dataSource.paginator = this.paginator;
+    this.timer = setInterval(() => {
+    this.progress++;
+    if (this.progress == 100) {
+    clearInterval(this.timer);
+    this.personService.getAll().subscribe(persons => {
+      this.persons = persons;
+      this.dataSource = persons;
+      this.isLoading = false;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource = new MatTableDataSource(persons);
+      // it won't work properly if it is not wrapped in timeout
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator;
+      });
+      this.renderedData = this.dataSource.connect();
+    });
+    }
+    }, 20);
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
   //##############################################
   openDialog() {

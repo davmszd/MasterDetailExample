@@ -14,16 +14,45 @@ namespace MasterDetail.Web.Model
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
+      
+      modelBuilder.Seed();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlServer(@"Server=.;initial catalog=MasterDetail;persist security info=True;user id=sanew;password=ali;MultipleActiveResultSets=True;");
+      optionsBuilder.UseSqlServer(@"Server=.;initial catalog=MasterDetail;persist security info=True;user id=sa;password=123qweR;MultipleActiveResultSets=True;");
 
     }
   }
 
+  public static class ModelBuilderExtensions
+  {
+    public static void Seed(this ModelBuilder modelBuilder)
+    {
+
+      //modelBuilder.Entity<Person>().HasDate(
+      //    new Person
+      //    {
+      //      Name = "ali",
+      //      Family = "alavi",
+      //      NationalCode= "0123456789"
+      //    },
+
+      //    new Person
+      //    {
+      //      Name = "reza",
+      //      Family = "razavi",
+      //      NationalCode = "0123456789"
+      //    },
+      //    new Person
+      //    {
+      //      Name = "hasan",
+      //      Family = "hasani",
+      //      NationalCode = "0123456789"
+      //    }
+      //); 
+    }
+  }
 
   public class Person
   {

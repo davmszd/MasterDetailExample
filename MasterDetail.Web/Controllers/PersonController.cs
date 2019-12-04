@@ -21,6 +21,7 @@ namespace MasterDetail.Web.Controllers
         persons = db.Person
                     .Include(x => x.ThePersonPostList)
                     //.Take(5)
+                    .OrderBy(x => x.Name)
                     .ToList();
       }
       return new JsonResult(persons);
