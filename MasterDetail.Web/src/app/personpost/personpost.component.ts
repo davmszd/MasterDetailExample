@@ -1,5 +1,6 @@
-import { Component, OnInit, Input , Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild} from '@angular/core';
 import { PersonPost } from 'src/app/person/person.component';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -14,6 +15,8 @@ export class PersonpostComponent implements OnInit {
   @Output('delete') delete = new EventEmitter<PersonPost>();
   @Output('add') add = new EventEmitter<PersonPost>();
 
+
+  @ViewChild('personPostForm', { static: false }) editForm: NgForm;
 
   enabled: boolean = false;
   @Input('personPosts') personPosts: PersonPost[];
@@ -34,7 +37,7 @@ export class PersonpostComponent implements OnInit {
   //##############################################
 
   setEditPersonPost(onePersonPost: PersonPost) {
-    console.log(onePersonPost);
+    console.log({ onePersonPost });
     onePersonPost.isEdited = true;
     this.onePersonPost = onePersonPost;
     this.enabled = true;
@@ -62,7 +65,8 @@ export class PersonpostComponent implements OnInit {
     this.add.emit(newPersonPost);
   }
 
-  resetForm(personPostForm) {
-    personPostForm.reset();
+  resetForm(personPostForm: NgForm) {
+    personPostForm.resetForm();
+    //personPostForm.reset();
   }
 }

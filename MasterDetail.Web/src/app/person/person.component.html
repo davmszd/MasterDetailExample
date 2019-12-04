@@ -49,8 +49,7 @@
     <tr mat-row *matRowDef="let row;let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
   </mat-table>
   
-  <mat-paginator #paginator
-                 [pageSize]="5"
+  <mat-paginator [pageSize]="5"
                  [pageSizeOptions]="[5, 10, 20]"
                  [showFirstLastButtons]="true">
   </mat-paginator>

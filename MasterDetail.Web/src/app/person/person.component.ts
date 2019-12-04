@@ -18,11 +18,9 @@ import { Observable } from 'rxjs';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit, AfterViewInit {
-  persons: Person[];
+export class PersonComponent implements OnInit {
+  //persons: Person[];
   personPosts: PersonPost[];
-
-
   //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   //progressbar
   progress: number = 0;
@@ -37,22 +35,20 @@ export class PersonComponent implements OnInit, AfterViewInit {
   //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   constructor(private personService: PersonService, private MatDialog: MatDialog) {
   }
-
-
   ngOnInit() {
     this.isLoading = true;
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
     this.timer = setInterval(() => {
     this.progress++;
     if (this.progress == 100) {
     clearInterval(this.timer);
     this.personService.getAll().subscribe(persons => {
-      this.persons = persons;
-      this.dataSource = persons;
+      //this.persons = persons;
+      //this.dataSource = persons;
       this.isLoading = false;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource = new MatTableDataSource(persons);
+      //this.dataSource.paginator = this.paginator;
       // it won't work properly if it is not wrapped in timeout
+      this.dataSource = new MatTableDataSource(persons);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       });
@@ -60,24 +56,6 @@ export class PersonComponent implements OnInit, AfterViewInit {
     });
     }
     }, 20);
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
-  //##############################################
-  openDialog() {
-    this.MatDialog.open(PersonAddComponent, { data: { Id : 1 } })
-      .afterClosed()
-      .subscribe(result => {
-        console.log(result);
-        this.isLoading = true;
-        this.personService.getAll().subscribe(persons => {
-          this.persons = persons;
-          this.dataSource = persons;
-          this.isLoading = false;
-        });
-      });
   }
   //##############################################
   confirm(arg1) {
@@ -88,7 +66,7 @@ export class PersonComponent implements OnInit, AfterViewInit {
     console.log('cancel ' + arg2);
   }
   //##############################################
-
+  //PersonPost CRUD
   setPersonPost(thePersonPostList: any) {
     this.personPosts = thePersonPostList;
   }
@@ -107,12 +85,32 @@ export class PersonComponent implements OnInit, AfterViewInit {
   onPersonPostAdded(eventArgs: PersonPost) {
     this.personPosts.splice(0, 0, eventArgs);
   }
+  //##############################################
+  //Person CRUD
 
+  //Add Person With Modal
+  openDialog() {
+    this.MatDialog.open(PersonAddComponent, { data: { Id: 1 } })
+      .afterClosed()
+      .subscribe(result => {
+        console.log({ result });
+        this.isLoading = true;
+        this.personService.getAll().subscribe(persons => {
+          //this.persons = persons;
+          //this.dataSource = persons;
+          this.isLoading = false;
+          this.dataSource = new MatTableDataSource(persons);
+          setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
+          });
+          this.renderedData = this.dataSource.connect();
+        });
+      });
+  }
+
+  //Delete Person
   deletePerson(person: Person) {
-
-
     console.log('deletePerson ' + person.id);
-
     person.isDeleted = true;
     this.personService.delete(person).subscribe(() => {
       //let index = this.persons.indexOf(person);
@@ -120,9 +118,16 @@ export class PersonComponent implements OnInit, AfterViewInit {
 
 
       this.personService.getAll().subscribe(persons => {
-        this.persons = persons;
-        this.dataSource = persons;
+        console.log({persons});
+        //this.persons = persons;
+        //this.dataSource = persons;
         this.isLoading = false;
+
+        this.dataSource = new MatTableDataSource(persons);
+        setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+        });
+        this.renderedData = this.dataSource.connect();
       });
 
 
@@ -136,17 +141,17 @@ export class PersonComponent implements OnInit, AfterViewInit {
     });
   }
 
+  //Create Person
   savePerson(person: Person) {
     console.log('savePerson ' + person);
     person.isEdited = true;
     this.personService.create(person).subscribe((updatedPerson) => {
       this.personService.getAll().subscribe(persons => {
-        this.persons = persons;
+        //this.persons = persons;
         this.dataSource = persons;
       });
     });
   }
-
 }
 
 

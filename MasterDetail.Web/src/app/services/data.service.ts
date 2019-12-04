@@ -35,7 +35,7 @@ export class DataService {
 
   delete(resource) {
     return this.http.post(this.url + '/Delete',resource)
-      .map(response => response.json())
+      //.map(response => response.json())
       .catch(this.handleError);
   }
 

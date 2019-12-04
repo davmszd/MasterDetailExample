@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"renderedData\" class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n  \r\n  <mat-paginator #paginator\r\n                 [pageSize]=\"5\"\r\n                 [pageSizeOptions]=\"[5, 10, 20]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"renderedData\" class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n  \r\n  <mat-paginator [pageSize]=\"5\"\r\n                 [pageSizeOptions]=\"[5, 10, 20]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>personposts component</p>\r\n\r\n<form #personPostForm=\"ngForm\" (ngSubmit)=\"personPostForm\" class=\"form\">\r\n  <ul>\r\n    <li *ngFor=\"let personPost of personPosts\">\r\n      <span>{{personPost.name}}-{{personPost.description}}</span>\r\n      \r\n              <!--(click)=\"deletePersonPost(personPost); personPostForm.reset();\"-->\r\n      <button mat-raised-button\r\n              color=\"warn\"\r\n              dav-AreYouSure\r\n              (then)=\"deletePersonPost(personPost);\"\r\n              (else)=\"cancel(arg2)\"\r\n              >Delete</button>\r\n      <button mat-fab color=\"green\" (click)=\"setEditPersonPost(personPost)\">Edit</button>\r\n    </li>\r\n  </ul>\r\n\r\n  <mat-form-field>\r\n    <mat-label> name</mat-label>\r\n    <input name=\"name\" matInput #postName [(ngModel)]=\"onePersonPost.name\" placeholder=\"name\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label> Description</mat-label>\r\n    <input name=\"description\" matInput #postDescription [(ngModel)]=\"onePersonPost.description\" required/>\r\n    <mat-hint>Type Your Description here</mat-hint>\r\n    <mat-error>\r\n      description is required\r\n    </mat-error>\r\n  </mat-form-field>\r\n  \r\n  <button mat-stroked-button\r\n          color=\"primary\"\r\n          [disabled]=\"!enabled\"\r\n          (click)=\"editPersonPost(); resetForm(personPostForm);\"\r\n          >\r\n    Submit\r\n  </button>\r\n\r\n  <button mat-stroked-button\r\n          color=\"accent\"\r\n          (click)=\"addPersonPost(personPostForm);\">\r\n    Add\r\n  </button>\r\n</form>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>personposts component</p>\r\n\r\n\r\n<form #personPostForm=\"ngForm\"\r\n      (ngSubmit)=\"personPostForm\" class=\"form\">\r\n\r\n    <ul>\r\n      <li *ngFor=\"let personPost of personPosts\">\r\n        <span>{{personPost.name}}-{{personPost.description}}</span>\r\n\r\n        <!--(click)=\"deletePersonPost(personPost); personPostForm.reset();\"-->\r\n        <button mat-raised-button\r\n                color=\"warn\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePersonPost(personPost);\"\r\n                (else)=\"cancel(arg2)\">Delete</button>\r\n\r\n        <button mat-fab color=\"green\" (click)=\"setEditPersonPost(personPost)\">Edit</button>\r\n      </li>\r\n    </ul>\r\n\r\n    <mat-form-field>\r\n      <mat-label> name</mat-label>\r\n      <input name=\"name\" matInput #postName [(ngModel)]=\"onePersonPost.name\" placeholder=\"name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <mat-label> Description</mat-label>\r\n      <input name=\"description\" matInput #postDescription [(ngModel)]=\"onePersonPost.description\" required />\r\n      <mat-hint>Type Your Description here</mat-hint>\r\n      <mat-error>\r\n        description is required\r\n      </mat-error>\r\n    </mat-form-field>\r\n\r\n    <!--[disabled]=\"!enabled\"-->\r\n    <button mat-stroked-button\r\n            color=\"primary\"\r\n            (click)=\"editPersonPost();\">Submit</button>\r\n\r\n    <button mat-stroked-button\r\n            color=\"accent\"\r\n            (click)=\"addPersonPost(personPostForm);\">Add</button>\r\n</form>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -651,7 +651,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n.dropdown-toggle { \r\n  cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLmRyb3Bkb3duLXRvZ2dsZSB7IFxyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.dropdown-toggle { \n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5kcm9wZG93bi10b2dnbGUgeyBcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -916,18 +916,18 @@ let PersonComponent = class PersonComponent {
     }
     ngOnInit() {
         this.isLoading = true;
-        this.dataSource.paginator = this.paginator;
+        //this.dataSource.paginator = this.paginator;
         this.timer = setInterval(() => {
             this.progress++;
             if (this.progress == 100) {
                 clearInterval(this.timer);
                 this.personService.getAll().subscribe(persons => {
-                    this.persons = persons;
-                    this.dataSource = persons;
+                    //this.persons = persons;
+                    //this.dataSource = persons;
                     this.isLoading = false;
-                    this.dataSource.paginator = this.paginator;
-                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
+                    //this.dataSource.paginator = this.paginator;
                     // it won't work properly if it is not wrapped in timeout
+                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
                     setTimeout(() => {
                         this.dataSource.paginator = this.paginator;
                     });
@@ -935,23 +935,6 @@ let PersonComponent = class PersonComponent {
                 });
             }
         }, 20);
-    }
-    ngAfterViewInit() {
-        this.dataSource.paginator = this.paginator;
-    }
-    //##############################################
-    openDialog() {
-        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], { data: { Id: 1 } })
-            .afterClosed()
-            .subscribe(result => {
-            console.log(result);
-            this.isLoading = true;
-            this.personService.getAll().subscribe(persons => {
-                this.persons = persons;
-                this.dataSource = persons;
-                this.isLoading = false;
-            });
-        });
     }
     //##############################################
     confirm(arg1) {
@@ -961,6 +944,7 @@ let PersonComponent = class PersonComponent {
         console.log('cancel ' + arg2);
     }
     //##############################################
+    //PersonPost CRUD
     setPersonPost(thePersonPostList) {
         this.personPosts = thePersonPostList;
     }
@@ -976,6 +960,28 @@ let PersonComponent = class PersonComponent {
     onPersonPostAdded(eventArgs) {
         this.personPosts.splice(0, 0, eventArgs);
     }
+    //##############################################
+    //Person CRUD
+    //Add Person With Modal
+    openDialog() {
+        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], { data: { Id: 1 } })
+            .afterClosed()
+            .subscribe(result => {
+            console.log({ result });
+            this.isLoading = true;
+            this.personService.getAll().subscribe(persons => {
+                //this.persons = persons;
+                //this.dataSource = persons;
+                this.isLoading = false;
+                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
+                setTimeout(() => {
+                    this.dataSource.paginator = this.paginator;
+                });
+                this.renderedData = this.dataSource.connect();
+            });
+        });
+    }
+    //Delete Person
     deletePerson(person) {
         console.log('deletePerson ' + person.id);
         person.isDeleted = true;
@@ -983,9 +989,15 @@ let PersonComponent = class PersonComponent {
             //let index = this.persons.indexOf(person);
             //this.persons.splice(index, 1);
             this.personService.getAll().subscribe(persons => {
-                this.persons = persons;
-                this.dataSource = persons;
+                console.log({ persons });
+                //this.persons = persons;
+                //this.dataSource = persons;
                 this.isLoading = false;
+                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
+                setTimeout(() => {
+                    this.dataSource.paginator = this.paginator;
+                });
+                this.renderedData = this.dataSource.connect();
             });
         }, (error) => {
             if (error instanceof src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_6__["AppErrorNotFound"]) {
@@ -996,12 +1008,13 @@ let PersonComponent = class PersonComponent {
             }
         });
     }
+    //Create Person
     savePerson(person) {
         console.log('savePerson ' + person);
         person.isEdited = true;
         this.personService.create(person).subscribe((updatedPerson) => {
             this.personService.getAll().subscribe(persons => {
-                this.persons = persons;
+                //this.persons = persons;
                 this.dataSource = persons;
             });
         });
@@ -1081,7 +1094,7 @@ let PersonpostComponent = class PersonpostComponent {
     }
     //##############################################
     setEditPersonPost(onePersonPost) {
-        console.log(onePersonPost);
+        console.log({ onePersonPost });
         onePersonPost.isEdited = true;
         this.onePersonPost = onePersonPost;
         this.enabled = true;
@@ -1106,7 +1119,8 @@ let PersonpostComponent = class PersonpostComponent {
         this.add.emit(newPersonPost);
     }
     resetForm(personPostForm) {
-        personPostForm.reset();
+        personPostForm.resetForm();
+        //personPostForm.reset();
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1118,6 +1132,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])('add')
 ], PersonpostComponent.prototype, "add", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('personPostForm', { static: false })
+], PersonpostComponent.prototype, "editForm", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('personPosts')
 ], PersonpostComponent.prototype, "personPosts", void 0);
@@ -1185,7 +1202,7 @@ let DataService = class DataService {
     }
     delete(resource) {
         return this.http.post(this.url + '/Delete', resource)
-            .map(response => response.json())
+            //.map(response => response.json())
             .catch(this.handleError);
     }
     handleError(error) {
@@ -1312,7 +1329,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -18,6 +18,8 @@ namespace MasterDetail.Web.Controllers
       List<MasterDetail.Web.Model.Person> persons = new List<Person>();
       using (var db = new DBContext())
       {
+
+        //return DatabaseContext.Applications.Include(a => a.Children.Select(c => c.ChildRelationshipType));
         persons = db.Person
                     .Include(x => x.ThePersonPostList)
                     //.Take(5)
@@ -99,7 +101,7 @@ namespace MasterDetail.Web.Controllers
         }
         db.SaveChanges();
       }
-      return Ok();
+      return Ok(personvm.Id);
     }
   }
 

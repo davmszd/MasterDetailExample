@@ -20,7 +20,7 @@ namespace MasterDetail.Web.Model
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseSqlServer(@"Server=.;initial catalog=MasterDetail;persist security info=True;user id=sa;password=123qweR;MultipleActiveResultSets=True;");
+      optionsBuilder.UseSqlServer(@"Server=.;initial catalog=MasterDetail;persist security info=True;user id=sanew;password=ali;MultipleActiveResultSets=True;");
 
     }
   }
