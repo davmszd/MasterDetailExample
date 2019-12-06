@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"renderedData\" class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n  \r\n  <mat-paginator [pageSize]=\"5\"\r\n                 [pageSizeOptions]=\"[5, 10, 20]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" class=\"lessons-table mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n\r\n                 <!--\r\n                 [pageIndex]=\"page\"\r\n                 [pageSize] =\"pageSize\"\r\n                 (page)=\"handlePage($event)\"\r\n                     -->\r\n  <mat-paginator\r\n                 [length]=\"totalCount\"\r\n                 [pageSizeOptions]=\"[2,3,4]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
 
 /***/ }),
 
@@ -346,47 +346,6 @@ class AppErrorHandler {
     handleError(error) {
         alert('an unexpected error occurred');
         console.log(error);
-    }
-}
-
-
-/***/ }),
-
-/***/ "./src/app/Common/app-error-notfound.ts":
-/*!**********************************************!*\
-  !*** ./src/app/Common/app-error-notfound.ts ***!
-  \**********************************************/
-/*! exports provided: AppErrorNotFound */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppErrorNotFound", function() { return AppErrorNotFound; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _app_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-error */ "./src/app/Common/app-error.ts");
-
-
-class AppErrorNotFound extends _app_error__WEBPACK_IMPORTED_MODULE_1__["AppError"] {
-}
-
-
-/***/ }),
-
-/***/ "./src/app/Common/app-error.ts":
-/*!*************************************!*\
-  !*** ./src/app/Common/app-error.ts ***!
-  \*************************************/
-/*! exports provided: AppError */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppError", function() { return AppError; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-class AppError {
-    constructor(originalError) {
-        this.originalError = originalError;
     }
 }
 
@@ -770,7 +729,6 @@ __webpack_require__.r(__webpack_exports__);
 let EnumToArrayPipe = class EnumToArrayPipe {
     transform(value, args) {
         let keys = [];
-        debugger;
         for (let key in value) {
             if (isNaN(key)) {
                 continue;
@@ -778,17 +736,6 @@ let EnumToArrayPipe = class EnumToArrayPipe {
             keys.push({ key: key, value: value[key] });
         }
         return keys;
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        //console.log(value);
-        //console.log(Object.keys(value).filter(k => !isNaN(Number(k))));
-        //return Object.keys(value).filter(k => !isNaN(Number(k)));
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        //console.log(value);
-        //console.log(Object.keys(value).filter((type) => isNaN(<any>type) && type !== 'values'));
-        //return Object.keys(value).filter((type) => isNaN(<any>type) && type !== 'values');
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        //console.log(Object.keys(value).filter(k => !isNaN(Number(k))));
-        //return Object.keys(value).filter(k => !isNaN(Number(k)));
     }
 };
 EnumToArrayPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -931,6 +878,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/person/person.component.datasource.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/person/person.component.datasource.ts ***!
+  \*******************************************************/
+/*! exports provided: PersonDataSource */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonDataSource", function() { return PersonDataSource; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+class PersonDataSource {
+    constructor(personService) {
+        this.personService = personService;
+        this.personSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
+        this.loadingSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
+        this.loading$ = this.loadingSubject.asObservable();
+    }
+    connect(collectionViewer) {
+        return this.personSubject.asObservable();
+    }
+    disconnect(collectionViewer) {
+        this.personSubject.complete();
+        this.loadingSubject.complete();
+    }
+    getPaged(filter = '', sortDirection = 'asc', page, pageSize) {
+        console.log('getPaged PersonDataSource');
+        this.loadingSubject.next(true);
+        this.personService.getPaged(filter, sortDirection, page, pageSize).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(() => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["finalize"])(() => this.loadingSubject.next(false)))
+            .subscribe(persons => {
+            console.log({ persons });
+            //firstRowOnPage: 1
+            //lastRowOnPage: 5
+            this.page = persons['page'];
+            this.pageSize = persons['pageSize'];
+            this.totalCount = persons['totalCount'];
+            //pageCount: 2
+            //pageSize: 5
+            //results: (5)[{ … }, { … }, { … }, { … }, { … }]
+            //totalCount: 9
+            this.personSubject.next(persons['results']);
+        });
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/person/person.component.ts":
 /*!********************************************!*\
   !*** ./src/app/person/person.component.ts ***!
@@ -950,11 +950,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 /* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
-/* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
-/* harmony import */ var src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Common/app-error-notfound */ "./src/app/Common/app-error-notfound.ts");
-/* harmony import */ var src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
-
+/* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
+/* harmony import */ var src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/person/person.component.datasource */ "./src/app/person/person.component.datasource.ts");
+/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/internal/operators/tap */ "./node_modules/rxjs/internal/operators/tap.js");
+/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -963,6 +962,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PersonComponent = class PersonComponent {
+    //renderedData: Observable<any>;
     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     constructor(personService, MatDialog) {
         this.personService = personService;
@@ -974,30 +974,118 @@ let PersonComponent = class PersonComponent {
         //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         //paging
         this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
-        this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
     }
     ngOnInit() {
-        this.isLoading = true;
-        //this.dataSource.paginator = this.paginator;
-        this.timer = setInterval(() => {
-            this.progress++;
-            if (this.progress == 100) {
-                clearInterval(this.timer);
-                this.personService.getAll().subscribe(persons => {
-                    //this.persons = persons;
-                    //this.dataSource = persons;
-                    this.isLoading = false;
-                    //this.dataSource.paginator = this.paginator;
-                    // it won't work properly if it is not wrapped in timeout
-                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
-                    setTimeout(() => {
-                        this.dataSource.paginator = this.paginator;
-                    });
-                    this.renderedData = this.dataSource.connect();
-                });
-            }
-        }, 20);
+        console.log('ngOnInit');
+        //console.log('ngOnInit this.paginator.pageSize ' + this.paginator.pageSize);
+        //console.log('ngOnInit this.paginator.pageIndex ' + this.paginator.pageIndex);
+        //this.paginator.pageSize = 2;
+        //this.paginator.pageSize = 0;
+        this.dataSource = new src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_5__["PersonDataSource"](this.personService);
+        //this.dataSource.getPaged('name', 'asc', 0, 2);
+        //this.totalCount = this.dataSource.totalCount;
+        ////this.page = this.dataSource.page;
+        //this.pageSize = this.dataSource.pageSize;
+        //this.totalCount = this.dataSource.totalCount;
     }
+    ngAfterViewInit() {
+        //##########################################################
+        //this.dataSource = new PersonDataSource(this.personService);
+        this.totalCount = this.dataSource.totalCount;
+        setTimeout(() => {
+            this.dataSource.getPaged('name', 'asc', 0, 2);
+        });
+        //this.page = this.dataSource.page;
+        //this.pageSize = this.dataSource.pageSize;
+        //##########################################################
+        //console.log('ngAfterViewInit');
+        //console.log('ngAfterViewInit this.paginator.pageSize ' +  this.paginator.pageSize );
+        //console.log('ngAfterViewInit this.paginator.pageIndex ' + this.paginator.pageIndex);
+        //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        //console.log('ngAfterViewInit this.dataSource.pageSize ' + this.paginator.pageSize);
+        //console.log('ngAfterViewInit this.dataSource.totalCount ' + this.paginator.pageIndex);
+        ////this.pageSize = this.dataSource.pageSize;
+        ////this.totalCount = this.dataSource.totalCount;
+        //##########################################################
+        //this.paginator.page
+        //  .pipe(
+        //  tap(() => {
+        //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
+        //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
+        //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
+        //    ////this.page = this.dataSource.page;
+        //    //this.pageSize = this.dataSource.pageSize;
+        //    //this.totalCount = this.dataSource.totalCount;
+        //  })).subscribe();
+        //##########################################################
+        //merge(this.paginator.page)
+        //  .pipe(
+        //  tap(() => {
+        //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        //  })
+        //  )
+        //  .subscribe();
+        //##########################################################
+        //this.paginator.page.subscribe((event) => console.log(event));
+        //##########################################################
+        this.paginator.page
+            .pipe(Object(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__["tap"])(() => this.loadPagedPerson()))
+            .subscribe();
+    }
+    loadPagedPerson() {
+        this.dataSource.getPaged('', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    }
+    handlePage(pageEvent) {
+        console.log('handlePage this.paginator.pageIndex ' + this.paginator.pageIndex);
+        console.log('handlePage this.paginator.pageSize ' + this.paginator.pageSize);
+        console.log('handlePage pageEvent.pageIndex ' + pageEvent.pageIndex);
+        console.log('handlePage pageEvent.pageSize ' + pageEvent.pageSize);
+        console.log('handlePage pageEvent.length ' + pageEvent.length);
+        console.log('handlePage previousPageIndex ' + pageEvent.previousPageIndex);
+        //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        //this.pageSize = this.dataSource.pageSize;
+        //this.totalCount = this.dataSource.totalCount;
+        ////this.dataSource = new PersonDataSource(this.personService);
+        //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        ////this.page = this.dataSource.page;
+        ////this.pageSize = this.dataSource.pageSize;
+        //this.totalCount = this.dataSource.totalCount;
+        //######################################################
+        //this.paginator.page
+        //  .pipe(
+        //  tap(() => {
+        //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
+        //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
+        //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
+        //    this.page = this.dataSource.page;
+        //    this.pageSize = this.dataSource.pageSize;
+        //    this.totalCount = this.dataSource.totalCount;
+        //  })).subscribe();
+    }
+    //ngOnInit() {
+    //  this.isLoading = true;
+    //  //this.dataSource.paginator = this.paginator;
+    //  this.timer = setInterval(() => {
+    //  this.progress++;
+    //  if (this.progress == 100) {
+    //  clearInterval(this.timer);
+    //  this.personService.getAll().subscribe(persons => {
+    //    //this.persons = persons;
+    //    //this.dataSource = persons;
+    //    this.isLoading = false;
+    //    //this.dataSource.paginator = this.paginator;
+    //    // it won't work properly if it is not wrapped in timeout
+    //    this.dataSource = new MatTableDataSource(persons);
+    //    setTimeout(() => {
+    //      this.dataSource.paginator = this.paginator;
+    //    });
+    //    this.renderedData = this.dataSource.connect();
+    //  });
+    //  }
+    //  }, 20);
+    //}
     //##############################################
     confirm(arg1) {
         console.log('confirm ' + arg1);
@@ -1025,55 +1113,59 @@ let PersonComponent = class PersonComponent {
     //##############################################
     //Person CRUD
     //Add Person With Modal
-    openDialog() {
-        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], {
-            data: { Id: 1 },
-            width: '600px',
-            height: '600px',
-        })
-            .afterClosed()
-            .subscribe(result => {
-            console.log({ result });
-            this.isLoading = true;
-            this.personService.getAll().subscribe(persons => {
-                //this.persons = persons;
-                //this.dataSource = persons;
-                this.isLoading = false;
-                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
-                setTimeout(() => {
-                    this.dataSource.paginator = this.paginator;
-                });
-                this.renderedData = this.dataSource.connect();
-            });
-        });
-    }
+    //openDialog() {
+    //  this.MatDialog.open(PersonAddComponent, {
+    //    data: { Id: 1 },
+    //    width: '600px',
+    //    height: '600px', })
+    //    .afterClosed()
+    //    .subscribe(result => {
+    //      console.log({ result });
+    //      this.isLoading = true;
+    //      this.personService.getAll().subscribe(persons => {
+    //        //this.persons = persons;
+    //        //this.dataSource = persons;
+    //        this.isLoading = false;
+    //        this.dataSource = new MatTableDataSource(persons);
+    //        setTimeout(() => {
+    //          this.dataSource.paginator = this.paginator;
+    //        });
+    //        this.renderedData = this.dataSource.connect();
+    //      });
+    //    });
+    //}
     //Delete Person
-    deletePerson(person) {
-        console.log('deletePerson ' + person.id);
-        person.isDeleted = true;
-        this.personService.delete(person).subscribe(() => {
-            //let index = this.persons.indexOf(person);
-            //this.persons.splice(index, 1);
-            this.personService.getAll().subscribe(persons => {
-                console.log({ persons });
-                //this.persons = persons;
-                //this.dataSource = persons;
-                this.isLoading = false;
-                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](persons);
-                setTimeout(() => {
-                    this.dataSource.paginator = this.paginator;
-                });
-                this.renderedData = this.dataSource.connect();
-            });
-        }, (error) => {
-            if (error instanceof src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_6__["AppErrorNotFound"]) {
-                alert('this post has already been deleted.');
-            }
-            else {
-                throw error;
-            }
-        });
-    }
+    //deletePerson(person: Person) {
+    //  console.log('deletePerson ' + person.id);
+    //  person.isDeleted = true;
+    //  this.personService.delete(person).subscribe(() => {
+    //    //let index = this.persons.indexOf(person);
+    //    //this.persons.splice(index, 1);
+    //
+    //
+    //    this.personService.getAll().subscribe(persons => {
+    //      console.log({persons});
+    //      //this.persons = persons;
+    //      //this.dataSource = persons;
+    //      this.isLoading = false;
+    //
+    //      this.dataSource = new MatTableDataSource(persons);
+    //      setTimeout(() => {
+    //        this.dataSource.paginator = this.paginator;
+    //      });
+    //      this.renderedData = this.dataSource.connect();
+    //    });
+    //
+    //
+    //  }, (error: AppError) => {
+    //    if (error instanceof AppErrorNotFound) {
+    //      alert('this post has already been deleted.');
+    //    }
+    //    else {
+    //      throw error;
+    //    }
+    //  });
+    //}
     //Create Person
     savePerson(person) {
         console.log('savePerson ' + person);
@@ -1087,11 +1179,11 @@ let PersonComponent = class PersonComponent {
     }
 };
 PersonComponent.ctorParameters = () => [
-    { type: src_app_services_person_service__WEBPACK_IMPORTED_MODULE_5__["PersonService"] },
+    { type: src_app_services_person_service__WEBPACK_IMPORTED_MODULE_4__["PersonService"] },
     { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"], { static: false })
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"], { static: true })
 ], PersonComponent.prototype, "paginator", void 0);
 PersonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1318,6 +1410,29 @@ __webpack_require__.r(__webpack_exports__);
 let PersonService = class PersonService extends _data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"] {
     constructor(http) {
         super('/api/person', http);
+        this.url = '/api/person';
+    }
+    getPaged(filter, sortOrder, page = 1, pageSize = 10) {
+        console.log('getPaged PersonService');
+        //return this.http.get(this.url, {
+        //  params: new HttpParams().set('Filter', filter)
+        //    .set('SortOrder', sortOrder)
+        //    .set('PageNumber', pageSize.toString())
+        //    .set('pageSize', pageNumber.toString())
+        //})
+        //  .map(response => response.json());
+        if (page === 0) {
+            page = 1;
+        }
+        return this.http.get(this.url, {
+            params: {
+                Filter: filter,
+                SortOrder: sortOrder,
+                page: page.toString(),
+                pageSize: pageSize.toString(),
+            }
+        })
+            .map(response => response.json());
     }
 };
 PersonService.ctorParameters = () => [

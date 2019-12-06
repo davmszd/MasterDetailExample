@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class DataService {
-  constructor(private url: string, private http: Http) { }
+  constructor(public url: string, public http: Http) { }
 
   getAll() {
     return this.http.get(this.url)

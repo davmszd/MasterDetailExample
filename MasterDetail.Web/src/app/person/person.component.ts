@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, PageEvent } from '@angular/material';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,6 +10,10 @@ import { AppError } from 'src/app/Common/app-error';
 import { AppErrorNotFound } from 'src/app/Common/app-error-notfound';
 import { PersonAddComponent } from 'src/app/person-add/person-add.component';
 import { Observable } from 'rxjs';
+import { PersonDataSource } from 'src/app/person/person.component.datasource';
+import { tap } from 'rxjs/internal/operators/tap';
+import { merge, fromEvent } from "rxjs";
+
 
 
 
@@ -18,7 +22,7 @@ import { Observable } from 'rxjs';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit {
+export class PersonComponent implements OnInit, AfterViewInit {
   //persons: Person[];
   personPosts: PersonPost[];
   //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -26,37 +30,157 @@ export class PersonComponent implements OnInit {
   progress: number = 0;
   timer;
   isLoading: boolean = false;
+
+
+
+  //page: number;
+  //pageSize: number;
+  totalCount: number ;
+
   //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   //paging
   displayedColumns: string[] = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  dataSource: MatTableDataSource<Person> = new MatTableDataSource();
-  renderedData: Observable<any>;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  //dataSource: MatTableDataSource<Person> = new MatTableDataSource();
+  dataSource: PersonDataSource;
+  //renderedData: Observable<any>;
   //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   constructor(private personService: PersonService, private MatDialog: MatDialog) {
   }
   ngOnInit() {
-    this.isLoading = true;
-    //this.dataSource.paginator = this.paginator;
-    this.timer = setInterval(() => {
-    this.progress++;
-    if (this.progress == 100) {
-    clearInterval(this.timer);
-    this.personService.getAll().subscribe(persons => {
-      //this.persons = persons;
-      //this.dataSource = persons;
-      this.isLoading = false;
-      //this.dataSource.paginator = this.paginator;
-      // it won't work properly if it is not wrapped in timeout
-      this.dataSource = new MatTableDataSource(persons);
-      setTimeout(() => {
-        this.dataSource.paginator = this.paginator;
-      });
-      this.renderedData = this.dataSource.connect();
-    });
-    }
-    }, 20);
+    console.log('ngOnInit');
+
+    //console.log('ngOnInit this.paginator.pageSize ' + this.paginator.pageSize);
+    //console.log('ngOnInit this.paginator.pageIndex ' + this.paginator.pageIndex);
+    //this.paginator.pageSize = 2;
+    //this.paginator.pageSize = 0;
+    this.dataSource = new PersonDataSource(this.personService);
+    //this.dataSource.getPaged('name', 'asc', 0, 2);
+    //this.totalCount = this.dataSource.totalCount;
+
+    ////this.page = this.dataSource.page;
+    //this.pageSize = this.dataSource.pageSize;
+    //this.totalCount = this.dataSource.totalCount;
   }
+
+  ngAfterViewInit() {
+    //##########################################################
+    //this.dataSource = new PersonDataSource(this.personService);
+      this.totalCount = this.dataSource.totalCount;
+    setTimeout(() => {
+      this.dataSource.getPaged('name', 'asc', 0, 2);
+    });
+    //this.page = this.dataSource.page;
+    //this.pageSize = this.dataSource.pageSize;
+    //##########################################################
+    //console.log('ngAfterViewInit');
+    //console.log('ngAfterViewInit this.paginator.pageSize ' +  this.paginator.pageSize );
+    //console.log('ngAfterViewInit this.paginator.pageIndex ' + this.paginator.pageIndex);
+    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+
+    //console.log('ngAfterViewInit this.dataSource.pageSize ' + this.paginator.pageSize);
+    //console.log('ngAfterViewInit this.dataSource.totalCount ' + this.paginator.pageIndex);
+    ////this.pageSize = this.dataSource.pageSize;
+    ////this.totalCount = this.dataSource.totalCount;
+    //##########################################################
+    //this.paginator.page
+    //  .pipe(
+    //  tap(() => {
+    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
+    //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
+    //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
+
+    //    ////this.page = this.dataSource.page;
+    //    //this.pageSize = this.dataSource.pageSize;
+    //    //this.totalCount = this.dataSource.totalCount;
+    //  })).subscribe();
+    //##########################################################
+
+    //merge(this.paginator.page)
+    //  .pipe(
+    //  tap(() => {
+    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    //  })
+    //  )
+    //  .subscribe();
+    //##########################################################
+
+    //this.paginator.page.subscribe((event) => console.log(event));
+    //##########################################################
+
+    this.paginator.page
+      .pipe(
+      tap(() => this.loadPagedPerson())
+      )
+      .subscribe();
+  }
+
+  loadPagedPerson() {
+    this.dataSource.getPaged(
+      '',
+      'asc',
+      this.paginator.pageIndex,
+      this.paginator.pageSize);
+  }
+
+  public handlePage(pageEvent: PageEvent) {
+    console.log('handlePage this.paginator.pageIndex ' + this.paginator.pageIndex);
+    console.log('handlePage this.paginator.pageSize ' + this.paginator.pageSize);
+    console.log('handlePage pageEvent.pageIndex ' + pageEvent.pageIndex);
+    console.log('handlePage pageEvent.pageSize ' + pageEvent.pageSize);
+    console.log('handlePage pageEvent.length ' + pageEvent.length);
+    console.log('handlePage previousPageIndex ' + pageEvent.previousPageIndex);
+
+    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    //this.pageSize = this.dataSource.pageSize;
+    //this.totalCount = this.dataSource.totalCount;
+
+
+
+    ////this.dataSource = new PersonDataSource(this.personService);
+    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    ////this.page = this.dataSource.page;
+    ////this.pageSize = this.dataSource.pageSize;
+    //this.totalCount = this.dataSource.totalCount;
+    //######################################################
+    //this.paginator.page
+    //  .pipe(
+    //  tap(() => {
+    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+    //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
+    //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
+    //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
+
+    //    this.page = this.dataSource.page;
+    //    this.pageSize = this.dataSource.pageSize;
+    //    this.totalCount = this.dataSource.totalCount;
+    //  })).subscribe();
+
+
+  }
+  //ngOnInit() {
+  //  this.isLoading = true;
+  //  //this.dataSource.paginator = this.paginator;
+  //  this.timer = setInterval(() => {
+  //  this.progress++;
+  //  if (this.progress == 100) {
+  //  clearInterval(this.timer);
+  //  this.personService.getAll().subscribe(persons => {
+  //    //this.persons = persons;
+  //    //this.dataSource = persons;
+  //    this.isLoading = false;
+  //    //this.dataSource.paginator = this.paginator;
+  //    // it won't work properly if it is not wrapped in timeout
+  //    this.dataSource = new MatTableDataSource(persons);
+  //    setTimeout(() => {
+  //      this.dataSource.paginator = this.paginator;
+  //    });
+  //    this.renderedData = this.dataSource.connect();
+  //  });
+  //  }
+  //  }, 20);
+  //}
   //##############################################
   confirm(arg1) {
     console.log('confirm ' + arg1);
@@ -89,60 +213,60 @@ export class PersonComponent implements OnInit {
   //Person CRUD
 
   //Add Person With Modal
-  openDialog() {
-    this.MatDialog.open(PersonAddComponent, {
-      data: { Id: 1 },
-      width: '600px',
-      height: '600px', })
-      .afterClosed()
-      .subscribe(result => {
-        console.log({ result });
-        this.isLoading = true;
-        this.personService.getAll().subscribe(persons => {
-          //this.persons = persons;
-          //this.dataSource = persons;
-          this.isLoading = false;
-          this.dataSource = new MatTableDataSource(persons);
-          setTimeout(() => {
-            this.dataSource.paginator = this.paginator;
-          });
-          this.renderedData = this.dataSource.connect();
-        });
-      });
-  }
+  //openDialog() {
+  //  this.MatDialog.open(PersonAddComponent, {
+  //    data: { Id: 1 },
+  //    width: '600px',
+  //    height: '600px', })
+  //    .afterClosed()
+  //    .subscribe(result => {
+  //      console.log({ result });
+  //      this.isLoading = true;
+  //      this.personService.getAll().subscribe(persons => {
+  //        //this.persons = persons;
+  //        //this.dataSource = persons;
+  //        this.isLoading = false;
+  //        this.dataSource = new MatTableDataSource(persons);
+  //        setTimeout(() => {
+  //          this.dataSource.paginator = this.paginator;
+  //        });
+  //        this.renderedData = this.dataSource.connect();
+  //      });
+  //    });
+  //}
 
   //Delete Person
-  deletePerson(person: Person) {
-    console.log('deletePerson ' + person.id);
-    person.isDeleted = true;
-    this.personService.delete(person).subscribe(() => {
-      //let index = this.persons.indexOf(person);
-      //this.persons.splice(index, 1);
-
-
-      this.personService.getAll().subscribe(persons => {
-        console.log({persons});
-        //this.persons = persons;
-        //this.dataSource = persons;
-        this.isLoading = false;
-
-        this.dataSource = new MatTableDataSource(persons);
-        setTimeout(() => {
-          this.dataSource.paginator = this.paginator;
-        });
-        this.renderedData = this.dataSource.connect();
-      });
-
-
-    }, (error: AppError) => {
-      if (error instanceof AppErrorNotFound) {
-        alert('this post has already been deleted.');
-      }
-      else {
-        throw error;
-      }
-    });
-  }
+  //deletePerson(person: Person) {
+  //  console.log('deletePerson ' + person.id);
+  //  person.isDeleted = true;
+  //  this.personService.delete(person).subscribe(() => {
+  //    //let index = this.persons.indexOf(person);
+  //    //this.persons.splice(index, 1);
+  //
+  //
+  //    this.personService.getAll().subscribe(persons => {
+  //      console.log({persons});
+  //      //this.persons = persons;
+  //      //this.dataSource = persons;
+  //      this.isLoading = false;
+  //
+  //      this.dataSource = new MatTableDataSource(persons);
+  //      setTimeout(() => {
+  //        this.dataSource.paginator = this.paginator;
+  //      });
+  //      this.renderedData = this.dataSource.connect();
+  //    });
+  //
+  //
+  //  }, (error: AppError) => {
+  //    if (error instanceof AppErrorNotFound) {
+  //      alert('this post has already been deleted.');
+  //    }
+  //    else {
+  //      throw error;
+  //    }
+  //  });
+  //}
 
   //Create Person
   savePerson(person: Person) {

@@ -13,20 +13,24 @@ namespace MasterDetail.Web.Controllers
   {
     [HttpGet]
     [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-    public IActionResult Get()
+    public IActionResult Get([FromQuery]PagingParameter pagingParameter)
     {
-      List<MasterDetail.Web.Model.Person> persons = new List<Person>();
+      //List<MasterDetail.Web.Model.Person> persons = new List<Person>();
       using (var db = new DBContext())
       {
-
+        var paged = db.Person.GetPaged(pagingParameter.Page,pagingParameter.PageSize);
+        //######################################################
         //return DatabaseContext.Applications.Include(a => a.Children.Select(c => c.ChildRelationshipType));
-        persons = db.Person
-                    .Include(x => x.ThePersonPostList)
-                    //.Take(5)
-                    .OrderBy(x => x.Name)
-                    .ToList();
+        //var skip = Math.Abs((pagingParameter.Page - 1) * pagingParameter.PageSize);
+        //
+        //persons = db.Person
+        //            .Include(x => x.ThePersonPostList)
+        //            .Take(pagingParameter.PageSize)
+        //            .Skip(skip)
+        //            .OrderBy(x => x.Name)
+        //            .ToList();
+        return new JsonResult(paged);
       }
-      return new JsonResult(persons);
     }
 
     [HttpPost]

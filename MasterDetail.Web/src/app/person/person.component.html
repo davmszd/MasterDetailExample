@@ -2,7 +2,7 @@
 <mat-icon (click)="openDialog()">add_alert</mat-icon>
 
 <div class="mat-elevation-z8">
-  <mat-table [dataSource]="renderedData" class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" class="lessons-table mat-elevation-z8">
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> action </th>
       <td mat-cell *matCellDef="let row;">
@@ -48,9 +48,15 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row;let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
   </mat-table>
-  
-  <mat-paginator [pageSize]="5"
-                 [pageSizeOptions]="[5, 10, 20]"
+
+                 <!--
+                 [pageIndex]="page"
+                 [pageSize] ="pageSize"
+                 (page)="handlePage($event)"
+                     -->
+  <mat-paginator
+                 [length]="totalCount"
+                 [pageSizeOptions]="[2,3,4]"
                  [showFirstLastButtons]="true">
   </mat-paginator>
 

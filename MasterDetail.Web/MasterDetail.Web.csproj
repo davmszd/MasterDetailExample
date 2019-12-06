@@ -40,8 +40,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\app\person\person.component.datasource.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="ef">
       <HintPath>dll\ef.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\person\person.component.datasource.ts" />
   </ItemGroup>
 </Project>

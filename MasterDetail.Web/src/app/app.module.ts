@@ -29,7 +29,6 @@ import { AreYouSureDirective } from './Common/are-you-sure.directive';
 import { PersonAddComponent } from './person-add/person-add.component';
 import { EnumToArrayPipe } from './enum-to-array.pipe';
 
-
 @NgModule({
   declarations: [
     AppComponent,
