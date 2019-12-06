@@ -12,6 +12,13 @@
       <input matInput name="nationalcode" [(ngModel)]="person.nationalcode" placeholder="nationalcode">
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label>Marital Issue</mat-label>
+      <mat-select name="maritalStatus">
+        <mat-option *ngFor="let item of enmMaritalStatus | enumToArray" [value]="item.key">{{item.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
 
     <button mat-raised-button (click)="addPerson(personAddForm)">Add</button>
     <button mat-raised-button mat-dialog-close="cancel">cancel</button>

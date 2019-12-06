@@ -54,6 +54,13 @@ namespace MasterDetail.Web.Model
     }
   }
 
+  public enum MaritalStatus
+  {
+    None = 0,
+    Single = 1,
+    Married = 2,
+  }
+
   public class Person
   {
     public string Id { get; set; }
@@ -62,6 +69,7 @@ namespace MasterDetail.Web.Model
     public string Family { get; set; }
     public string NationalCode { get; set; }
     public bool Subscribed { get; set; }
+    public MaritalStatus MaritalStatus { get; set; }
     public List<PersonPost> ThePersonPostList { get; set; }
 
   }

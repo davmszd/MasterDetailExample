@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form #personAddForm=\"ngForm\" (ngSubmit)=\"personAddForm\" class=\"form\">\r\n  <div class=\"example-container\">\r\n    <mat-form-field>\r\n      <input matInput name=\"name\" [(ngModel)]=\"person.name\" placeholder=\"name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput name=\"family\" [(ngModel)]=\"person.family\" placeholder=\"family\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput name=\"nationalcode\" [(ngModel)]=\"person.nationalcode\" placeholder=\"nationalcode\">\r\n    </mat-form-field>\r\n\r\n\r\n    <button mat-raised-button (click)=\"addPerson(personAddForm)\">Add</button>\r\n    <button mat-raised-button mat-dialog-close=\"cancel\">cancel</button>\r\n\r\n  </div>\r\n</form>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form #personAddForm=\"ngForm\" (ngSubmit)=\"personAddForm\" class=\"form\">\r\n  <div class=\"example-container\">\r\n    <mat-form-field>\r\n      <input matInput name=\"name\" [(ngModel)]=\"person.name\" placeholder=\"name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput name=\"family\" [(ngModel)]=\"person.family\" placeholder=\"family\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput name=\"nationalcode\" [(ngModel)]=\"person.nationalcode\" placeholder=\"nationalcode\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <mat-label>Marital Issue</mat-label>\r\n      <mat-select name=\"maritalStatus\">\r\n        <mat-option *ngFor=\"let item of enmMaritalStatus | enumToArray\" [value]=\"item.key\">{{item.value}}</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n\r\n    <button mat-raised-button (click)=\"addPerson(personAddForm)\">Add</button>\r\n    <button mat-raised-button mat-dialog-close=\"cancel\">cancel</button>\r\n\r\n  </div>\r\n</form>\r\n");
 
 /***/ }),
 
@@ -554,19 +554,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm2015/tooltip.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 /* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _person_person_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./person/person.component */ "./src/app/person/person.component.ts");
-/* harmony import */ var _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./personpost/personpost.component */ "./src/app/personpost/personpost.component.ts");
-/* harmony import */ var _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./bs-navbar/bs-navbar.component */ "./src/app/bs-navbar/bs-navbar.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/Common/app-error-handler */ "./src/app/Common/app-error-handler.ts");
-/* harmony import */ var _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Common/are-you-sure.directive */ "./src/app/Common/are-you-sure.directive.ts");
-/* harmony import */ var _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm2015/select.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _person_person_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./person/person.component */ "./src/app/person/person.component.ts");
+/* harmony import */ var _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./personpost/personpost.component */ "./src/app/personpost/personpost.component.ts");
+/* harmony import */ var _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./bs-navbar/bs-navbar.component */ "./src/app/bs-navbar/bs-navbar.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! src/app/Common/app-error-handler */ "./src/app/Common/app-error-handler.ts");
+/* harmony import */ var _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Common/are-you-sure.directive */ "./src/app/Common/are-you-sure.directive.ts");
+/* harmony import */ var _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+/* harmony import */ var _enum_to_array_pipe__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./enum-to-array.pipe */ "./src/app/enum-to-array.pipe.ts");
 
 
 
@@ -593,27 +595,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_12__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_13__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"],
-            _person_person_component__WEBPACK_IMPORTED_MODULE_18__["PersonComponent"],
-            _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_19__["PersonpostComponent"],
-            _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_20__["BsNavbarComponent"],
-            _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"],
-            _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_23__["AreYouSureDirective"],
-            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__["PersonAddComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_18__["AppComponent"],
+            _person_person_component__WEBPACK_IMPORTED_MODULE_19__["PersonComponent"],
+            _personpost_personpost_component__WEBPACK_IMPORTED_MODULE_20__["PersonpostComponent"],
+            _bs_navbar_bs_navbar_component__WEBPACK_IMPORTED_MODULE_21__["BsNavbarComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_22__["HomeComponent"],
+            _Common_are_you_sure_directive__WEBPACK_IMPORTED_MODULE_24__["AreYouSureDirective"],
+            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_25__["PersonAddComponent"],
+            _enum_to_array_pipe__WEBPACK_IMPORTED_MODULE_26__["EnumToArrayPipe"],
         ],
         entryComponents: [
-            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_24__["PersonAddComponent"],
+            _person_add_person_add_component__WEBPACK_IMPORTED_MODULE_25__["PersonAddComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_16__["AppRoutingModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_13__["HttpModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_16__["FormsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_17__["AppRoutingModule"],
+            _angular_http__WEBPACK_IMPORTED_MODULE_14__["HttpModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
             _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"],
             _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"],
@@ -625,16 +630,17 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__["MatTooltipModule"],
             _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialogModule"],
             _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__["MatPaginatorModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"].forRoot([
-                { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"] },
-                { path: 'Home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"] },
-                { path: 'Persons', component: _person_person_component__WEBPACK_IMPORTED_MODULE_18__["PersonComponent"] }
+            _angular_material_select__WEBPACK_IMPORTED_MODULE_12__["MatSelectModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_15__["RouterModule"].forRoot([
+                { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_22__["HomeComponent"] },
+                { path: 'Home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_22__["HomeComponent"] },
+                { path: 'Persons', component: _person_person_component__WEBPACK_IMPORTED_MODULE_19__["PersonComponent"] }
             ]),
         ],
         providers: [
-            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_12__["ErrorHandler"], useClass: src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_22__["AppErrorHandler"] },
+            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_13__["ErrorHandler"], useClass: src_app_Common_app_error_handler__WEBPACK_IMPORTED_MODULE_23__["AppErrorHandler"] },
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_18__["AppComponent"]]
     })
 ], AppModule);
 
@@ -747,6 +753,54 @@ class AppError {
 
 /***/ }),
 
+/***/ "./src/app/enum-to-array.pipe.ts":
+/*!***************************************!*\
+  !*** ./src/app/enum-to-array.pipe.ts ***!
+  \***************************************/
+/*! exports provided: EnumToArrayPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnumToArrayPipe", function() { return EnumToArrayPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let EnumToArrayPipe = class EnumToArrayPipe {
+    transform(value, args) {
+        let keys = [];
+        debugger;
+        for (let key in value) {
+            if (isNaN(key)) {
+                continue;
+            }
+            keys.push({ key: key, value: value[key] });
+        }
+        return keys;
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //console.log(value);
+        //console.log(Object.keys(value).filter(k => !isNaN(Number(k))));
+        //return Object.keys(value).filter(k => !isNaN(Number(k)));
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //console.log(value);
+        //console.log(Object.keys(value).filter((type) => isNaN(<any>type) && type !== 'values'));
+        //return Object.keys(value).filter((type) => isNaN(<any>type) && type !== 'values');
+        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        //console.log(Object.keys(value).filter(k => !isNaN(Number(k))));
+        //return Object.keys(value).filter(k => !isNaN(Number(k)));
+    }
+};
+EnumToArrayPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'enumToArray'
+    })
+], EnumToArrayPipe);
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.css":
 /*!*****************************************!*\
   !*** ./src/app/home/home.component.css ***!
@@ -818,17 +872,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 /* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
+/* harmony import */ var src_app_person_person_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/person/person.component */ "./src/app/person/person.component.ts");
 
 
 
 
+
+//e: \projects\masterdetail\masterdetail.web\src\app\person\person.component.ts
 //export const DIALOG_DATA = new InjectionToken('DIALOG_DATA');
 let PersonAddComponent = class PersonAddComponent {
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     constructor(dialogRef, data, personService) {
         this.dialogRef = dialogRef;
         this.personService = personService;
-        this.person = {};
+        this.person = new src_app_person_person_component__WEBPACK_IMPORTED_MODULE_4__["Person"]();
+        //maritalStatus = MaritalStatus.None;
+        this.enmMaritalStatus = src_app_person_person_component__WEBPACK_IMPORTED_MODULE_4__["MaritalStatus"];
     }
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     ngOnInit() {
     }
     addPerson(personAddForm) {
@@ -874,7 +935,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./src/app/person/person.component.ts ***!
   \********************************************/
-/*! exports provided: PersonComponent, Entity, Person, PersonPost, PersonPostDetail */
+/*! exports provided: PersonComponent, Entity, Person, PersonPost, PersonPostDetail, MaritalStatus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -884,6 +945,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Person", function() { return Person; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonPost", function() { return PersonPost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonPostDetail", function() { return PersonPostDetail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MaritalStatus", function() { return MaritalStatus; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
@@ -964,7 +1026,11 @@ let PersonComponent = class PersonComponent {
     //Person CRUD
     //Add Person With Modal
     openDialog() {
-        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], { data: { Id: 1 } })
+        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_7__["PersonAddComponent"], {
+            data: { Id: 1 },
+            width: '600px',
+            height: '600px',
+        })
             .afterClosed()
             .subscribe(result => {
             console.log({ result });
@@ -1043,6 +1109,12 @@ class PersonPost extends Entity {
 }
 class PersonPostDetail extends Entity {
 }
+var MaritalStatus;
+(function (MaritalStatus) {
+    MaritalStatus[MaritalStatus["None"] = 0] = "None";
+    MaritalStatus[MaritalStatus["Single"] = 1] = "Single";
+    MaritalStatus[MaritalStatus["Married"] = 2] = "Married";
+})(MaritalStatus || (MaritalStatus = {}));
 
 
 /***/ }),

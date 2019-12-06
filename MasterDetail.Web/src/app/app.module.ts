@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -26,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { AppErrorHandler } from 'src/app/Common/app-error-handler';
 import { AreYouSureDirective } from './Common/are-you-sure.directive';
 import { PersonAddComponent } from './person-add/person-add.component';
+import { EnumToArrayPipe } from './enum-to-array.pipe';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { PersonAddComponent } from './person-add/person-add.component';
     HomeComponent,
     AreYouSureDirective,
     PersonAddComponent,
+    EnumToArrayPipe,
 
   ],
   entryComponents: [
@@ -58,6 +61,7 @@ import { PersonAddComponent } from './person-add/person-add.component';
     MatTooltipModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'Home', component: HomeComponent },

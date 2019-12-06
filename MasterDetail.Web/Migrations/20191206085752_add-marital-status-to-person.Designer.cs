@@ -11,9 +11,10 @@ using System;
 namespace MasterDetail.Web.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class BloggingDBContextModelSnapshot : ModelSnapshot
+    [Migration("20191206085752_add-marital-status-to-person")]
+    partial class addmaritalstatustoperson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

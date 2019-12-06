@@ -90,7 +90,10 @@ export class PersonComponent implements OnInit {
 
   //Add Person With Modal
   openDialog() {
-    this.MatDialog.open(PersonAddComponent, { data: { Id: 1 } })
+    this.MatDialog.open(PersonAddComponent, {
+      data: { Id: 1 },
+      width: '600px',
+      height: '600px', })
       .afterClosed()
       .subscribe(result => {
         console.log({ result });
@@ -173,6 +176,7 @@ export class Person extends Entity implements IPerson {
   family: string;
   nationalCode: string;
   subscribed: string;
+  maritalstatus: MaritalStatus;
   thePersonPostList: PersonPost[];
 }
 export interface IPerson {
@@ -181,6 +185,7 @@ export interface IPerson {
   family: string;
   nationalCode: string;
   subscribed: string;
+  maritalstatus: MaritalStatus;
   thePersonPostList: PersonPost[];
 }
 
@@ -208,4 +213,11 @@ export interface IPersonPostDetail {
   id: string;
   fromDate: string;
   toDate: string;
+}
+
+
+export enum MaritalStatus {
+  None = 0,
+  Single = 1,
+  Married = 2,
 }
