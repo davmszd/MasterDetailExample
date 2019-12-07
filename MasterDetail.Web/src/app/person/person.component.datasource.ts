@@ -14,16 +14,17 @@ export class PersonDataSource implements DataSource<Person> {
   public page: number;
   public pageSize: number;
   public totalCount: number;
-
-
-
+  /*A BehaviorSubject is a Subject that can emit the current value (<< Subjects have no concept of current value>> )*/
   private personSubject = new BehaviorSubject<Person[]>([]);
-
+  //#########################################################################
   private loadingSubject = new BehaviorSubject<boolean>(false);
-
   public loading$ = this.loadingSubject.asObservable();
-
-  constructor(private personService: PersonService) { }
+  //#########################################################################
+  private totalCountSubject = new BehaviorSubject<number>(0);
+  public totalCountSubject$ = this.totalCountSubject.asObservable();
+  //#########################################################################
+  constructor(private personService: PersonService) {
+  }
 
   connect(collectionViewer: CollectionViewer): Observable<Person[]> {
     return this.personSubject.asObservable();
@@ -40,20 +41,24 @@ export class PersonDataSource implements DataSource<Person> {
     this.loadingSubject.next(true);
 
     this.personService.getPaged(filter, sortDirection, page, pageSize).pipe(
+
       catchError(() => of([])),
+
       finalize(() => this.loadingSubject.next(false))
+
       )
       .subscribe(persons => {
+
         console.log({ persons });
-        //firstRowOnPage: 1
-        //lastRowOnPage: 5
+
         this.page = persons['page'];
+
         this.pageSize = persons['pageSize'];
+
         this.totalCount = persons['totalCount'];
-        //pageCount: 2
-        //pageSize: 5
-        //results: (5)[{ … }, { … }, { … }, { … }, { … }]
-        //totalCount: 9
+
+        this.totalCountSubject.next(this.totalCount);
+
         this.personSubject.next(persons['results']);
       });
   }

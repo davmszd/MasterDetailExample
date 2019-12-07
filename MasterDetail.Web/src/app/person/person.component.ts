@@ -30,7 +30,8 @@ export class PersonComponent implements OnInit, AfterViewInit {
   progress: number = 0;
   timer;
   isLoading: boolean = false;
-
+  pageSizeOptions: number[] = [2, 3, 4,10,20];
+  showFirstLastButtons: boolean = true;
 
 
   //page: number;
@@ -65,11 +66,15 @@ export class PersonComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     //##########################################################
+    //##########################################################
+
     //this.dataSource = new PersonDataSource(this.personService);
-      this.totalCount = this.dataSource.totalCount;
-    setTimeout(() => {
-      this.dataSource.getPaged('name', 'asc', 0, 2);
-    });
+    //setTimeout(() => {
+    //  this.totalCount = this.dataSource.totalCount;
+    //});
+    //setTimeout(() => {
+    this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+    //});
     //this.page = this.dataSource.page;
     //this.pageSize = this.dataSource.pageSize;
     //##########################################################
@@ -111,54 +116,26 @@ export class PersonComponent implements OnInit, AfterViewInit {
 
     this.paginator.page
       .pipe(
-      tap(() => this.loadPagedPerson())
+        tap(() => {
+          //this.loadPagedPerson();
+          this.dataSource.getPaged(
+            '',
+            'asc',
+            this.paginator.pageIndex,
+            this.paginator.pageSize);
+        })
       )
       .subscribe();
   }
 
-  loadPagedPerson() {
-    this.dataSource.getPaged(
-      '',
-      'asc',
-      this.paginator.pageIndex,
-      this.paginator.pageSize);
-  }
+  //loadPagedPerson() {
+  //  this.dataSource.getPaged(
+  //    '',
+  //    'asc',
+  //    this.paginator.pageIndex,
+  //    this.paginator.pageSize);
+  //}
 
-  public handlePage(pageEvent: PageEvent) {
-    console.log('handlePage this.paginator.pageIndex ' + this.paginator.pageIndex);
-    console.log('handlePage this.paginator.pageSize ' + this.paginator.pageSize);
-    console.log('handlePage pageEvent.pageIndex ' + pageEvent.pageIndex);
-    console.log('handlePage pageEvent.pageSize ' + pageEvent.pageSize);
-    console.log('handlePage pageEvent.length ' + pageEvent.length);
-    console.log('handlePage previousPageIndex ' + pageEvent.previousPageIndex);
-
-    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    //this.pageSize = this.dataSource.pageSize;
-    //this.totalCount = this.dataSource.totalCount;
-
-
-
-    ////this.dataSource = new PersonDataSource(this.personService);
-    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    ////this.page = this.dataSource.page;
-    ////this.pageSize = this.dataSource.pageSize;
-    //this.totalCount = this.dataSource.totalCount;
-    //######################################################
-    //this.paginator.page
-    //  .pipe(
-    //  tap(() => {
-    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
-    //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
-    //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
-
-    //    this.page = this.dataSource.page;
-    //    this.pageSize = this.dataSource.pageSize;
-    //    this.totalCount = this.dataSource.totalCount;
-    //  })).subscribe();
-
-
-  }
   //ngOnInit() {
   //  this.isLoading = true;
   //  //this.dataSource.paginator = this.paginator;
@@ -211,63 +188,66 @@ export class PersonComponent implements OnInit, AfterViewInit {
   }
   //##############################################
   //Person CRUD
-
   //Add Person With Modal
-  //openDialog() {
-  //  this.MatDialog.open(PersonAddComponent, {
-  //    data: { Id: 1 },
-  //    width: '600px',
-  //    height: '600px', })
-  //    .afterClosed()
-  //    .subscribe(result => {
-  //      console.log({ result });
-  //      this.isLoading = true;
-  //      this.personService.getAll().subscribe(persons => {
-  //        //this.persons = persons;
-  //        //this.dataSource = persons;
-  //        this.isLoading = false;
-  //        this.dataSource = new MatTableDataSource(persons);
-  //        setTimeout(() => {
-  //          this.dataSource.paginator = this.paginator;
-  //        });
-  //        this.renderedData = this.dataSource.connect();
-  //      });
-  //    });
-  //}
+  openDialog() {
+    this.MatDialog.open(PersonAddComponent, {
+      data: { Id: 1 },
+      width: '600px',
+      height: '600px', })
+      .afterClosed()
+      .subscribe(result => {
+        console.log({ result });
+        this.isLoading = true;
+        this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+        //######################################################
+        //this.personService.getAll().subscribe(persons => {
+        //  //this.persons = persons;
+        //  //this.dataSource = persons;
+        //  this.isLoading = false;
+        //  this.dataSource = new MatTableDataSource(persons);
+        //  setTimeout(() => {
+        //    this.dataSource.paginator = this.paginator;
+        //  });
+        //  this.renderedData = this.dataSource.connect();
+        //});
+      });
+  }
 
   //Delete Person
-  //deletePerson(person: Person) {
-  //  console.log('deletePerson ' + person.id);
-  //  person.isDeleted = true;
-  //  this.personService.delete(person).subscribe(() => {
-  //    //let index = this.persons.indexOf(person);
-  //    //this.persons.splice(index, 1);
-  //
-  //
-  //    this.personService.getAll().subscribe(persons => {
-  //      console.log({persons});
-  //      //this.persons = persons;
-  //      //this.dataSource = persons;
-  //      this.isLoading = false;
-  //
-  //      this.dataSource = new MatTableDataSource(persons);
-  //      setTimeout(() => {
-  //        this.dataSource.paginator = this.paginator;
-  //      });
-  //      this.renderedData = this.dataSource.connect();
-  //    });
-  //
-  //
-  //  }, (error: AppError) => {
-  //    if (error instanceof AppErrorNotFound) {
-  //      alert('this post has already been deleted.');
-  //    }
-  //    else {
-  //      throw error;
-  //    }
-  //  });
-  //}
+  deletePerson(person: Person) {
+    console.log('deletePerson ' + person.id);
+    person.isDeleted = true;
+    this.personService.delete(person).subscribe(() => {
+      this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+      //######################################################
+      //let index = this.persons.indexOf(person);
+      //this.persons.splice(index, 1);
+      //######################################################
+      //this.personService.getAll().subscribe(persons => {
+      //  console.log({persons});
+      //  //this.persons = persons;
+      //  //this.dataSource = persons;
+      //  this.isLoading = false;
+      //
+      //  //this.dataSource = new MatTableDataSource(persons);
+      //  //setTimeout(() => {
+      //  //  this.dataSource.paginator = this.paginator;
+      //  //});
+      //  //this.renderedData = this.dataSource.connect();
+      //});
+    }, (error: AppError) => {
+      if (error instanceof AppErrorNotFound) {
+        alert('this post has already been deleted.');
+      }
+      else {
+        throw error;
+      }
+    });
+  }
 
+  //######################################################
+  //######################################################
+  //######################################################
   //Create Person
   savePerson(person: Person) {
     console.log('savePerson ' + person);

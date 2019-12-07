@@ -18,7 +18,10 @@ namespace MasterDetail.Web.Controllers
       //List<MasterDetail.Web.Model.Person> persons = new List<Person>();
       using (var db = new DBContext())
       {
-        var paged = db.Person.GetPaged(pagingParameter.Page,pagingParameter.PageSize);
+        var paged = db.Person
+                      .OrderBy(x => x.Name)
+                      .Include(x => x.ThePersonPostList)
+                      .GetPaged(pagingParameter.Page,pagingParameter.PageSize);
         //######################################################
         //return DatabaseContext.Applications.Include(a => a.Children.Select(c => c.ChildRelationshipType));
         //var skip = Math.Abs((pagingParameter.Page - 1) * pagingParameter.PageSize);

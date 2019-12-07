@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark fixed-top\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">O</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Home\">Home</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/Persons\">Persons</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>home component works!</p>\r\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" class=\"lessons-table mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n\r\n                 <!--\r\n                 [pageIndex]=\"page\"\r\n                 [pageSize] =\"pageSize\"\r\n                 (page)=\"handlePage($event)\"\r\n                     -->\r\n  <mat-paginator\r\n                 [length]=\"totalCount\"\r\n                 [pageSizeOptions]=\"[2,3,4]\"\r\n                 [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<mat-progress-spinner mode=\"determinate\" [value]=\"progress\" *ngIf=\"isLoading\"></mat-progress-spinner>-->\r\n<mat-icon (click)=\"openDialog()\">add_alert</mat-icon>\r\n\r\n<div class=\"spinner-container\" *ngIf=\"dataSource.loading$ | async\">\r\n\r\n  <mat-spinner></mat-spinner>\r\n\r\n</div>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" class=\"lessons-table mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef> action </th>\r\n      <td mat-cell *matCellDef=\"let row;\">\r\n        <button mat-mini-fab color=\"primary\" (click)=\"setPersonPost(row.thePersonPostList)\">Edit</button>\r\n        <button mat-mini-fab color=\"green\" (click)=\"savePerson(row)\">Save</button>\r\n        <!--(click)=\"deletePerson(row)\"-->\r\n        <button mat-mini-fab\r\n                color=\"accent\"\r\n                dav-AreYouSure\r\n                (then)=\"deletePerson(row);\"\r\n                (else)=\"cancel(arg2)\"\r\n                matTooltip=\"You Are Deleting << {{ row.name}} {{ row.family }} >> \"\r\n                matTooltipPosition=\"right\">\r\n          Delete\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n    <!-- name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n    <!-- family Column -->\r\n    <ng-container matColumnDef=\"family\">\r\n      <th mat-header-cell *matHeaderCellDef> Family </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.family}} </td>\r\n    </ng-container>\r\n    <!-- nationalCode Column -->\r\n    <ng-container matColumnDef=\"nationalCode\">\r\n      <th mat-header-cell *matHeaderCellDef> NationalCode</th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.nationalCode}} </td>\r\n    </ng-container>\r\n    <!-- subscribed Column -->\r\n    <ng-container matColumnDef=\"subscribed\">\r\n      <th mat-header-cell *matHeaderCellDef> Subscribed </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-checkbox [value]=\"element.name\"\r\n                      [checked]=\"element.subscribed\"\r\n                      (change)=\"setPersonPost(element.thePersonPostList)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row;let even = even; columns: displayedColumns;\" [ngClass]=\"{gray: even}\"></tr>\r\n  </mat-table>\r\n\r\n                 <!--\r\n                 [pageIndex]=\"page\"\r\n                 [pageSize] =\"pageSize\"\r\n                 (page)=\"handlePage($event)\"\r\n                     -->\r\n  <mat-paginator\r\n                 [length]=\"dataSource.totalCountSubject$ | async\"\r\n                 [pageSizeOptions]=\"pageSizeOptions\"\r\n                 [showFirstLastButtons]=\"showFirstLastButtons\">\r\n  </mat-paginator>\r\n\r\n</div>\r\n<app-personpost [personPosts]=\"personPosts\"\r\n                (change)=\"onPersonPostChanged($event)\"\r\n                (delete)=\"onPersonPostDeleted($event)\"\r\n                (add)=\"onPersonPostAdded($event)\"></app-personpost>\r\n");
 
 /***/ }),
 
@@ -346,6 +346,47 @@ class AppErrorHandler {
     handleError(error) {
         alert('an unexpected error occurred');
         console.log(error);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/Common/app-error-notfound.ts":
+/*!**********************************************!*\
+  !*** ./src/app/Common/app-error-notfound.ts ***!
+  \**********************************************/
+/*! exports provided: AppErrorNotFound */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppErrorNotFound", function() { return AppErrorNotFound; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _app_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-error */ "./src/app/Common/app-error.ts");
+
+
+class AppErrorNotFound extends _app_error__WEBPACK_IMPORTED_MODULE_1__["AppError"] {
+}
+
+
+/***/ }),
+
+/***/ "./src/app/Common/app-error.ts":
+/*!*************************************!*\
+  !*** ./src/app/Common/app-error.ts ***!
+  \*************************************/
+/*! exports provided: AppError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppError", function() { return AppError; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class AppError {
+    constructor(originalError) {
+        this.originalError = originalError;
     }
 }
 
@@ -616,7 +657,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.dropdown-toggle { \n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5kcm9wZG93bi10b2dnbGUgeyBcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n.dropdown-toggle { \r\n  cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnMtbmF2YmFyL2JzLW5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9icy1uYXZiYXIvYnMtbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLmRyb3Bkb3duLXRvZ2dsZSB7IFxyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -874,7 +915,7 @@ PersonAddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("mat-icon {\r\n  color:black;\r\n}\r\n.gray {\r\n  background-color: #f5f5f5\r\n}\r\n.mat-icon:hover {\r\n  cursor:pointer;\r\n  color:chartreuse;\r\n}\r\n.mat-column-name{\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n.mat-column-family {\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n.mat-column-nationalCode {\r\n  flex: 0 0 50% !important;\r\n  min-width: 140px !important;\r\n}\r\n.mat-column-subscribed{\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGVyc29uL3BlcnNvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRTtBQUNGO0FBR0E7RUFDRSxjQUFjO0VBQ2QsZ0JBQWdCO0FBQ2xCO0FBR0E7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBRUE7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBRUE7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBR0E7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCIiwiZmlsZSI6InNyYy9hcHAvcGVyc29uL3BlcnNvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibWF0LWljb24ge1xyXG4gIGNvbG9yOmJsYWNrO1xyXG59XHJcbi5ncmF5IHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjVmNWY1XHJcbn1cclxuXHJcblxyXG4ubWF0LWljb246aG92ZXIge1xyXG4gIGN1cnNvcjpwb2ludGVyO1xyXG4gIGNvbG9yOmNoYXJ0cmV1c2U7XHJcbn1cclxuXHJcblxyXG4ubWF0LWNvbHVtbi1uYW1le1xyXG4gIGZsZXg6IDAgMCAyNSUgIWltcG9ydGFudDtcclxuICBtaW4td2lkdGg6IDEwNHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYXQtY29sdW1uLWZhbWlseSB7XHJcbiAgZmxleDogMCAwIDI1JSAhaW1wb3J0YW50O1xyXG4gIG1pbi13aWR0aDogMTA0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1hdC1jb2x1bW4tbmF0aW9uYWxDb2RlIHtcclxuICBmbGV4OiAwIDAgNTAlICFpbXBvcnRhbnQ7XHJcbiAgbWluLXdpZHRoOiAxNDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuLm1hdC1jb2x1bW4tc3Vic2NyaWJlZHtcclxuICBmbGV4OiAwIDAgMjUlICFpbXBvcnRhbnQ7XHJcbiAgbWluLXdpZHRoOiAxMDRweCAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("mat-icon {\r\n  color:black;\r\n}\r\n.gray {\r\n  background-color: #f5f5f5\r\n}\r\n.mat-icon:hover {\r\n  cursor:pointer;\r\n  color:chartreuse;\r\n}\r\n.mat-column-name{\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n.mat-column-family {\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n.mat-column-nationalCode {\r\n  flex: 0 0 50% !important;\r\n  min-width: 140px !important;\r\n}\r\n.mat-column-subscribed{\r\n  flex: 0 0 25% !important;\r\n  min-width: 104px !important;\r\n}\r\n.course {\r\n  text-align: center;\r\n  max-width: 390px;\r\n  margin: 0 auto;\r\n}\r\n.course-thumbnail {\r\n  width: 150px;\r\n  margin: 20px auto 0 auto;\r\n  display: block;\r\n}\r\n.description-cell {\r\n  text-align: left;\r\n  margin: 10px auto;\r\n}\r\n.duration-cell {\r\n  text-align: center;\r\n}\r\n.duration-cell mat-icon {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    font-size: 20px;\r\n  }\r\n.spinner-container {\r\n  height: 360px;\r\n  width: 390px;\r\n  position: fixed;\r\n}\r\n.spinner-container mat-spinner {\r\n  margin: 130px auto 0 auto;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGVyc29uL3BlcnNvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRTtBQUNGO0FBR0E7RUFDRSxjQUFjO0VBQ2QsZ0JBQWdCO0FBQ2xCO0FBR0E7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBRUE7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBRUE7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBR0E7RUFDRSx3QkFBd0I7RUFDeEIsMkJBQTJCO0FBQzdCO0FBSUE7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLFlBQVk7RUFDWix3QkFBd0I7RUFDeEIsY0FBYztBQUNoQjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBRUU7SUFDRSxxQkFBcUI7SUFDckIsc0JBQXNCO0lBQ3RCLGVBQWU7RUFDakI7QUFFRjtFQUNFLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvcGVyc29uL3BlcnNvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibWF0LWljb24ge1xyXG4gIGNvbG9yOmJsYWNrO1xyXG59XHJcbi5ncmF5IHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjVmNWY1XHJcbn1cclxuXHJcblxyXG4ubWF0LWljb246aG92ZXIge1xyXG4gIGN1cnNvcjpwb2ludGVyO1xyXG4gIGNvbG9yOmNoYXJ0cmV1c2U7XHJcbn1cclxuXHJcblxyXG4ubWF0LWNvbHVtbi1uYW1le1xyXG4gIGZsZXg6IDAgMCAyNSUgIWltcG9ydGFudDtcclxuICBtaW4td2lkdGg6IDEwNHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYXQtY29sdW1uLWZhbWlseSB7XHJcbiAgZmxleDogMCAwIDI1JSAhaW1wb3J0YW50O1xyXG4gIG1pbi13aWR0aDogMTA0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1hdC1jb2x1bW4tbmF0aW9uYWxDb2RlIHtcclxuICBmbGV4OiAwIDAgNTAlICFpbXBvcnRhbnQ7XHJcbiAgbWluLXdpZHRoOiAxNDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuLm1hdC1jb2x1bW4tc3Vic2NyaWJlZHtcclxuICBmbGV4OiAwIDAgMjUlICFpbXBvcnRhbnQ7XHJcbiAgbWluLXdpZHRoOiAxMDRweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuXHJcbi5jb3Vyc2Uge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBtYXgtd2lkdGg6IDM5MHB4O1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG59XHJcblxyXG4uY291cnNlLXRodW1ibmFpbCB7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIG1hcmdpbjogMjBweCBhdXRvIDAgYXV0bztcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxuLmRlc2NyaXB0aW9uLWNlbGwge1xyXG4gIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcbn1cclxuXHJcbi5kdXJhdGlvbi1jZWxsIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbiAgLmR1cmF0aW9uLWNlbGwgbWF0LWljb24ge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICB9XHJcblxyXG4uc3Bpbm5lci1jb250YWluZXIge1xyXG4gIGhlaWdodDogMzYwcHg7XHJcbiAgd2lkdGg6IDM5MHB4O1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxufVxyXG5cclxuLnNwaW5uZXItY29udGFpbmVyIG1hdC1zcGlubmVyIHtcclxuICBtYXJnaW46IDEzMHB4IGF1dG8gMCBhdXRvO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -895,11 +936,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PersonDataSource {
+    //#########################################################################
     constructor(personService) {
         this.personService = personService;
+        /*A BehaviorSubject is a Subject that can emit the current value (<< Subjects have no concept of current value>> )*/
         this.personSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
+        //#########################################################################
         this.loadingSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
         this.loading$ = this.loadingSubject.asObservable();
+        //#########################################################################
+        this.totalCountSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
+        this.totalCountSubject$ = this.totalCountSubject.asObservable();
     }
     connect(collectionViewer) {
         return this.personSubject.asObservable();
@@ -914,15 +961,10 @@ class PersonDataSource {
         this.personService.getPaged(filter, sortDirection, page, pageSize).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(() => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["finalize"])(() => this.loadingSubject.next(false)))
             .subscribe(persons => {
             console.log({ persons });
-            //firstRowOnPage: 1
-            //lastRowOnPage: 5
             this.page = persons['page'];
             this.pageSize = persons['pageSize'];
             this.totalCount = persons['totalCount'];
-            //pageCount: 2
-            //pageSize: 5
-            //results: (5)[{ … }, { … }, { … }, { … }, { … }]
-            //totalCount: 9
+            this.totalCountSubject.next(this.totalCount);
             this.personSubject.next(persons['results']);
         });
     }
@@ -951,9 +993,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 /* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
 /* harmony import */ var src_app_services_person_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/person.service */ "./src/app/services/person.service.ts");
-/* harmony import */ var src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/person/person.component.datasource */ "./src/app/person/person.component.datasource.ts");
-/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/internal/operators/tap */ "./node_modules/rxjs/internal/operators/tap.js");
-/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/Common/app-error-notfound */ "./src/app/Common/app-error-notfound.ts");
+/* harmony import */ var src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/person-add/person-add.component */ "./src/app/person-add/person-add.component.ts");
+/* harmony import */ var src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/person/person.component.datasource */ "./src/app/person/person.component.datasource.ts");
+/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/internal/operators/tap */ "./node_modules/rxjs/internal/operators/tap.js");
+/* harmony import */ var rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_8__);
+
+
 
 
 
@@ -971,6 +1017,8 @@ let PersonComponent = class PersonComponent {
         //progressbar
         this.progress = 0;
         this.isLoading = false;
+        this.pageSizeOptions = [2, 3, 4, 10, 20];
+        this.showFirstLastButtons = true;
         //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         //paging
         this.displayedColumns = ['name', 'family', 'nationalCode', 'subscribed', 'action'];
@@ -981,7 +1029,7 @@ let PersonComponent = class PersonComponent {
         //console.log('ngOnInit this.paginator.pageIndex ' + this.paginator.pageIndex);
         //this.paginator.pageSize = 2;
         //this.paginator.pageSize = 0;
-        this.dataSource = new src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_5__["PersonDataSource"](this.personService);
+        this.dataSource = new src_app_person_person_component_datasource__WEBPACK_IMPORTED_MODULE_7__["PersonDataSource"](this.personService);
         //this.dataSource.getPaged('name', 'asc', 0, 2);
         //this.totalCount = this.dataSource.totalCount;
         ////this.page = this.dataSource.page;
@@ -990,11 +1038,14 @@ let PersonComponent = class PersonComponent {
     }
     ngAfterViewInit() {
         //##########################################################
+        //##########################################################
         //this.dataSource = new PersonDataSource(this.personService);
-        this.totalCount = this.dataSource.totalCount;
-        setTimeout(() => {
-            this.dataSource.getPaged('name', 'asc', 0, 2);
-        });
+        //setTimeout(() => {
+        //  this.totalCount = this.dataSource.totalCount;
+        //});
+        //setTimeout(() => {
+        this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+        //});
         //this.page = this.dataSource.page;
         //this.pageSize = this.dataSource.pageSize;
         //##########################################################
@@ -1030,40 +1081,19 @@ let PersonComponent = class PersonComponent {
         //this.paginator.page.subscribe((event) => console.log(event));
         //##########################################################
         this.paginator.page
-            .pipe(Object(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_6__["tap"])(() => this.loadPagedPerson()))
+            .pipe(Object(rxjs_internal_operators_tap__WEBPACK_IMPORTED_MODULE_8__["tap"])(() => {
+            //this.loadPagedPerson();
+            this.dataSource.getPaged('', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
+        }))
             .subscribe();
     }
-    loadPagedPerson() {
-        this.dataSource.getPaged('', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    }
-    handlePage(pageEvent) {
-        console.log('handlePage this.paginator.pageIndex ' + this.paginator.pageIndex);
-        console.log('handlePage this.paginator.pageSize ' + this.paginator.pageSize);
-        console.log('handlePage pageEvent.pageIndex ' + pageEvent.pageIndex);
-        console.log('handlePage pageEvent.pageSize ' + pageEvent.pageSize);
-        console.log('handlePage pageEvent.length ' + pageEvent.length);
-        console.log('handlePage previousPageIndex ' + pageEvent.previousPageIndex);
-        //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-        //this.pageSize = this.dataSource.pageSize;
-        //this.totalCount = this.dataSource.totalCount;
-        ////this.dataSource = new PersonDataSource(this.personService);
-        //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-        ////this.page = this.dataSource.page;
-        ////this.pageSize = this.dataSource.pageSize;
-        //this.totalCount = this.dataSource.totalCount;
-        //######################################################
-        //this.paginator.page
-        //  .pipe(
-        //  tap(() => {
-        //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-        //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
-        //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
-        //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
-        //    this.page = this.dataSource.page;
-        //    this.pageSize = this.dataSource.pageSize;
-        //    this.totalCount = this.dataSource.totalCount;
-        //  })).subscribe();
-    }
+    //loadPagedPerson() {
+    //  this.dataSource.getPaged(
+    //    '',
+    //    'asc',
+    //    this.paginator.pageIndex,
+    //    this.paginator.pageSize);
+    //}
     //ngOnInit() {
     //  this.isLoading = true;
     //  //this.dataSource.paginator = this.paginator;
@@ -1113,59 +1143,64 @@ let PersonComponent = class PersonComponent {
     //##############################################
     //Person CRUD
     //Add Person With Modal
-    //openDialog() {
-    //  this.MatDialog.open(PersonAddComponent, {
-    //    data: { Id: 1 },
-    //    width: '600px',
-    //    height: '600px', })
-    //    .afterClosed()
-    //    .subscribe(result => {
-    //      console.log({ result });
-    //      this.isLoading = true;
-    //      this.personService.getAll().subscribe(persons => {
-    //        //this.persons = persons;
-    //        //this.dataSource = persons;
-    //        this.isLoading = false;
-    //        this.dataSource = new MatTableDataSource(persons);
-    //        setTimeout(() => {
-    //          this.dataSource.paginator = this.paginator;
-    //        });
-    //        this.renderedData = this.dataSource.connect();
-    //      });
-    //    });
-    //}
+    openDialog() {
+        this.MatDialog.open(src_app_person_add_person_add_component__WEBPACK_IMPORTED_MODULE_6__["PersonAddComponent"], {
+            data: { Id: 1 },
+            width: '600px',
+            height: '600px',
+        })
+            .afterClosed()
+            .subscribe(result => {
+            console.log({ result });
+            this.isLoading = true;
+            this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+            //######################################################
+            //this.personService.getAll().subscribe(persons => {
+            //  //this.persons = persons;
+            //  //this.dataSource = persons;
+            //  this.isLoading = false;
+            //  this.dataSource = new MatTableDataSource(persons);
+            //  setTimeout(() => {
+            //    this.dataSource.paginator = this.paginator;
+            //  });
+            //  this.renderedData = this.dataSource.connect();
+            //});
+        });
+    }
     //Delete Person
-    //deletePerson(person: Person) {
-    //  console.log('deletePerson ' + person.id);
-    //  person.isDeleted = true;
-    //  this.personService.delete(person).subscribe(() => {
-    //    //let index = this.persons.indexOf(person);
-    //    //this.persons.splice(index, 1);
-    //
-    //
-    //    this.personService.getAll().subscribe(persons => {
-    //      console.log({persons});
-    //      //this.persons = persons;
-    //      //this.dataSource = persons;
-    //      this.isLoading = false;
-    //
-    //      this.dataSource = new MatTableDataSource(persons);
-    //      setTimeout(() => {
-    //        this.dataSource.paginator = this.paginator;
-    //      });
-    //      this.renderedData = this.dataSource.connect();
-    //    });
-    //
-    //
-    //  }, (error: AppError) => {
-    //    if (error instanceof AppErrorNotFound) {
-    //      alert('this post has already been deleted.');
-    //    }
-    //    else {
-    //      throw error;
-    //    }
-    //  });
-    //}
+    deletePerson(person) {
+        console.log('deletePerson ' + person.id);
+        person.isDeleted = true;
+        this.personService.delete(person).subscribe(() => {
+            this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
+            //######################################################
+            //let index = this.persons.indexOf(person);
+            //this.persons.splice(index, 1);
+            //######################################################
+            //this.personService.getAll().subscribe(persons => {
+            //  console.log({persons});
+            //  //this.persons = persons;
+            //  //this.dataSource = persons;
+            //  this.isLoading = false;
+            //
+            //  //this.dataSource = new MatTableDataSource(persons);
+            //  //setTimeout(() => {
+            //  //  this.dataSource.paginator = this.paginator;
+            //  //});
+            //  //this.renderedData = this.dataSource.connect();
+            //});
+        }, (error) => {
+            if (error instanceof src_app_Common_app_error_notfound__WEBPACK_IMPORTED_MODULE_5__["AppErrorNotFound"]) {
+                alert('this post has already been deleted.');
+            }
+            else {
+                throw error;
+            }
+        });
+    }
+    //######################################################
+    //######################################################
+    //######################################################
     //Create Person
     savePerson(person) {
         console.log('savePerson ' + person);
@@ -1516,7 +1551,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\Projects\MasterDetail\MasterDetail.Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })
