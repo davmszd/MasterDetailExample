@@ -56,108 +56,18 @@ export class PersonComponent implements OnInit, AfterViewInit {
     //this.paginator.pageSize = 2;
     //this.paginator.pageSize = 0;
     this.dataSource = new PersonDataSource(this.personService);
-    //this.dataSource.getPaged('name', 'asc', 0, 2);
-    //this.totalCount = this.dataSource.totalCount;
-
-    ////this.page = this.dataSource.page;
-    //this.pageSize = this.dataSource.pageSize;
-    //this.totalCount = this.dataSource.totalCount;
   }
 
   ngAfterViewInit() {
-    //##########################################################
-    //##########################################################
-
-    //this.dataSource = new PersonDataSource(this.personService);
-    //setTimeout(() => {
-    //  this.totalCount = this.dataSource.totalCount;
-    //});
-    //setTimeout(() => {
     this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
-    //});
-    //this.page = this.dataSource.page;
-    //this.pageSize = this.dataSource.pageSize;
-    //##########################################################
-    //console.log('ngAfterViewInit');
-    //console.log('ngAfterViewInit this.paginator.pageSize ' +  this.paginator.pageSize );
-    //console.log('ngAfterViewInit this.paginator.pageIndex ' + this.paginator.pageIndex);
-    //this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-
-    //console.log('ngAfterViewInit this.dataSource.pageSize ' + this.paginator.pageSize);
-    //console.log('ngAfterViewInit this.dataSource.totalCount ' + this.paginator.pageIndex);
-    ////this.pageSize = this.dataSource.pageSize;
-    ////this.totalCount = this.dataSource.totalCount;
-    //##########################################################
-    //this.paginator.page
-    //  .pipe(
-    //  tap(() => {
-    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    //    console.log('ngAfterViewInit this.dataSource.page ' + this.dataSource.page);
-    //    console.log('ngAfterViewInit this.dataSource.pageSize ' + this.dataSource.pageSize);
-    //    console.log('ngAfterViewInit this.dataSource.totalCount ' + this.dataSource.totalCount);
-
-    //    ////this.page = this.dataSource.page;
-    //    //this.pageSize = this.dataSource.pageSize;
-    //    //this.totalCount = this.dataSource.totalCount;
-    //  })).subscribe();
-    //##########################################################
-
-    //merge(this.paginator.page)
-    //  .pipe(
-    //  tap(() => {
-    //    this.dataSource.getPaged('name', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
-    //  })
-    //  )
-    //  .subscribe();
-    //##########################################################
-
-    //this.paginator.page.subscribe((event) => console.log(event));
-    //##########################################################
-
     this.paginator.page
       .pipe(
         tap(() => {
-          //this.loadPagedPerson();
-          this.dataSource.getPaged(
-            '',
-            'asc',
-            this.paginator.pageIndex,
-            this.paginator.pageSize);
+          this.dataSource.getPaged( '', 'asc', this.paginator.pageIndex, this.paginator.pageSize);
         })
       )
       .subscribe();
   }
-
-  //loadPagedPerson() {
-  //  this.dataSource.getPaged(
-  //    '',
-  //    'asc',
-  //    this.paginator.pageIndex,
-  //    this.paginator.pageSize);
-  //}
-
-  //ngOnInit() {
-  //  this.isLoading = true;
-  //  //this.dataSource.paginator = this.paginator;
-  //  this.timer = setInterval(() => {
-  //  this.progress++;
-  //  if (this.progress == 100) {
-  //  clearInterval(this.timer);
-  //  this.personService.getAll().subscribe(persons => {
-  //    //this.persons = persons;
-  //    //this.dataSource = persons;
-  //    this.isLoading = false;
-  //    //this.dataSource.paginator = this.paginator;
-  //    // it won't work properly if it is not wrapped in timeout
-  //    this.dataSource = new MatTableDataSource(persons);
-  //    setTimeout(() => {
-  //      this.dataSource.paginator = this.paginator;
-  //    });
-  //    this.renderedData = this.dataSource.connect();
-  //  });
-  //  }
-  //  }, 20);
-  //}
   //##############################################
   confirm(arg1) {
     console.log('confirm ' + arg1);
@@ -174,8 +84,6 @@ export class PersonComponent implements OnInit, AfterViewInit {
 
   onPersonPostChanged(eventArgs: PersonPost) {
     console.log('PersonPostChangedEventArgs ' + eventArgs.name + eventArgs.description);
-    //let index = this.personPosts.indexOf(eventArgs);
-    //this.personPosts.splice(index, 1);
   }
 
   onPersonPostDeleted(eventArgs: PersonPost) {
@@ -186,7 +94,9 @@ export class PersonComponent implements OnInit, AfterViewInit {
   onPersonPostAdded(eventArgs: PersonPost) {
     this.personPosts.splice(0, 0, eventArgs);
   }
-  //##############################################
+  //######################################################
+  //######################################################
+  //######################################################
   //Person CRUD
   //Add Person With Modal
   openDialog() {
@@ -199,42 +109,18 @@ export class PersonComponent implements OnInit, AfterViewInit {
         console.log({ result });
         this.isLoading = true;
         this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
-        //######################################################
-        //this.personService.getAll().subscribe(persons => {
-        //  //this.persons = persons;
-        //  //this.dataSource = persons;
-        //  this.isLoading = false;
-        //  this.dataSource = new MatTableDataSource(persons);
-        //  setTimeout(() => {
-        //    this.dataSource.paginator = this.paginator;
-        //  });
-        //  this.renderedData = this.dataSource.connect();
-        //});
       });
   }
 
+  //######################################################
+  //######################################################
+  //######################################################
   //Delete Person
   deletePerson(person: Person) {
     console.log('deletePerson ' + person.id);
     person.isDeleted = true;
     this.personService.delete(person).subscribe(() => {
       this.dataSource.getPaged('name', 'asc', 0, this.pageSizeOptions[0]);
-      //######################################################
-      //let index = this.persons.indexOf(person);
-      //this.persons.splice(index, 1);
-      //######################################################
-      //this.personService.getAll().subscribe(persons => {
-      //  console.log({persons});
-      //  //this.persons = persons;
-      //  //this.dataSource = persons;
-      //  this.isLoading = false;
-      //
-      //  //this.dataSource = new MatTableDataSource(persons);
-      //  //setTimeout(() => {
-      //  //  this.dataSource.paginator = this.paginator;
-      //  //});
-      //  //this.renderedData = this.dataSource.connect();
-      //});
     }, (error: AppError) => {
       if (error instanceof AppErrorNotFound) {
         alert('this post has already been deleted.');
@@ -244,7 +130,6 @@ export class PersonComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
   //######################################################
   //######################################################
   //######################################################

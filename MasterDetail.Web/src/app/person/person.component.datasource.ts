@@ -40,12 +40,12 @@ export class PersonDataSource implements DataSource<Person> {
 
     this.loadingSubject.next(true);
 
-    this.personService.getPaged(filter, sortDirection, page, pageSize).pipe(
+    this.personService
+      .getPaged(filter, sortDirection, page, pageSize)
+      .pipe(
+              catchError(() => of([])),
 
-      catchError(() => of([])),
-
-      finalize(() => this.loadingSubject.next(false))
-
+             finalize(() => this.loadingSubject.next(false))
       )
       .subscribe(persons => {
 

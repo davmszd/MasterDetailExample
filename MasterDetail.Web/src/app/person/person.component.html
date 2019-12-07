@@ -1,12 +1,5 @@
-<!--<mat-progress-spinner mode="determinate" [value]="progress" *ngIf="isLoading"></mat-progress-spinner>-->
+<mat-progress-spinner mode="determinate" [value]="progress" *ngIf="isLoading"></mat-progress-spinner>
 <mat-icon (click)="openDialog()">add_alert</mat-icon>
-
-<div class="spinner-container" *ngIf="dataSource.loading$ | async">
-
-  <mat-spinner></mat-spinner>
-
-</div>
-
 <div class="mat-elevation-z8">
   <mat-table [dataSource]="dataSource" class="lessons-table mat-elevation-z8">
     <ng-container matColumnDef="action">
